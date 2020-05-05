@@ -28,3 +28,6 @@ Route::get('/talla', 'TallaController@show');
 Route::get('/stock', 'StockController@show');
 
 Route::get('/factura', 'FacturaController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
