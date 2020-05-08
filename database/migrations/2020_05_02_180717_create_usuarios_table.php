@@ -22,10 +22,11 @@ class CreateUsuariosTable extends Migration
             $table->string('apellidos', 50)->nullable();
             $table->integer('telefono')->nullable();
             $table->string('direccion1', 50)->nullable();
-            $table->string('direccion2', 50->nullable());
+            $table->string('direccion2', 50)->nullable();
             $table->string('provincia', 20)->nullable();
             $table->string('localidad', 20)->nullable();
             $table->integer('codigo_postal')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
