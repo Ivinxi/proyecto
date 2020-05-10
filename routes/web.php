@@ -12,22 +12,38 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prueba', function () {
+Route::get('prueba', function () {
     echo 'tu puta madre';
 });
 
-Route::get('/producto', 'ProductoController@show');
+Route::get('producto', 'ProductoController@show');
 
-Route::get('/talla', 'TallaController@show');
+Route::get('talla', 'TallaController@show');
 
-Route::get('/stock', 'StockController@show');
+Route::get('stock', 'StockController@show');
 
-Route::get('/factura', 'FacturaController@show');
-Auth::routes();
+Route::get('factura', 'FacturaController@show');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//RUTAS ADMINISTRADOR
+
+Route::prefix('admin')->group(function(){
+
+	Route::prefix('tallas')->group(function(){
+
+		Route::get('crear', function(){
+			return view('forms.crearTalla');
+		});
+
+		Route::post('crearTalla', 'TallaController@create');		
+	});
+});
+
+
+
+Route::get('home', 'HomeController@index')->name('home');

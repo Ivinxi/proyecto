@@ -3,6 +3,6 @@
 
 @section('content')
 
-
+<a href="admin/tallas/crear">Crear talla</a>
 
 @endsection
