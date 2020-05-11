@@ -3,6 +3,8 @@
 
 @section('content')
 
-<a href="admin/tallas/crear">Crear talla</a>
+<a href="{{ route('mostrarTallas') }}">Mostrar talla</a>
+
+<a href="{{ route('vistaCrearTalla') }}">Crear talla</a>
 
 @endsection

@@ -24,8 +24,6 @@ Route::get('prueba', function () {
 
 Route::get('producto', 'ProductoController@show');
 
-Route::get('talla', 'TallaController@show');
-
 Route::get('stock', 'StockController@show');
 
 Route::get('factura', 'FacturaController@show');
@@ -36,11 +34,13 @@ Route::prefix('admin')->group(function(){
 
 	Route::prefix('tallas')->group(function(){
 
+		Route::get('/', 'TallaController@show')->name('mostrarTallas');
+
 		Route::get('crear', function(){
 			return view('forms.crearTalla');
-		});
+		})->name('vistaCrearTalla');
 
-		Route::post('crearTalla', 'TallaController@create');		
+		Route::post('insertarTalla', 'TallaController@create');		
 	});
 });
 

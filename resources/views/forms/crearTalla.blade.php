@@ -12,7 +12,7 @@
 				<h2>ÉXITO</h2>
 			@endif
 
-			<form action="crearTalla" method="POST">
+			<form action="insertarTalla" method="POST">
 				@csrf
 
 				<div class="form-group">

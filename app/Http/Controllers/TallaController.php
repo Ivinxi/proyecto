@@ -8,10 +8,17 @@ use App\Talla;
 
 class TallaController extends Controller
 {
+
+    //MOSTRAR TODAS LAS TALLAS
+
     public function show()
     {
-        return Talla::find(1);
+        $tallas = Talla::get();
+
+        return view('admin.mostrarTallas', [ 'tallas' => $tallas]);
     }
+
+    //CREAR TALLA
 
     public function create(Request $request)
     {
@@ -32,6 +39,8 @@ class TallaController extends Controller
             return redirect()->back()->with('success', true);
     	}
     }
+
+    //VALIDAR DTOS
 
     protected function validator(Request $request)
     {

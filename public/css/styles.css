@@ -7,3 +7,11 @@
 #menu-categoria .dropdown-hover:hover .dropdown-menu {
 	display:block;
 }
+
+.btn-admin {
+	min-width: 70px;
+}
+
+.aaaa {
+	min-width: 70px;
+}
