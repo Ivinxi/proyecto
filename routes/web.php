@@ -34,13 +34,19 @@ Route::prefix('admin')->group(function(){
 
 	Route::prefix('tallas')->group(function(){
 
-		Route::get('/', 'TallaController@show')->name('mostrarTallas');
+		Route::get('/', 'TallaController@show')->name('tallas');
 
 		Route::get('crear', function(){
 			return view('forms.crearTalla');
 		})->name('vistaCrearTalla');
 
-		Route::post('insertarTalla', 'TallaController@create');		
+		Route::post('insertarTalla', 'TallaController@create');
+
+		Route::get('editarTalla/{talla}', 'TallaController@verTalla')->name('editarTalla');
+
+		Route::post('updateTalla/{talla}', 'TallaController@update')->name('updateTalla');
+
+		Route::get('eliminarTalla/{talla}', 'TallaController@delete')->name('eliminarTalla');
 	});
 });
 
