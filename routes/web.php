@@ -18,38 +18,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('prueba', function () {
-    echo 'tu puta madre';
-});
-
-Route::get('producto', 'ProductoController@show');
-
-Route::get('stock', 'StockController@show');
-
-Route::get('factura', 'FacturaController@show');
-
-//RUTAS ADMINISTRADOR
+//RUTAS ADMIN
 
 Route::prefix('admin')->group(function(){
 
 	Route::prefix('tallas')->group(function(){
 
-		Route::get('/', 'TallaController@show')->name('tallas');
+		Route::get('/', 'TallaController@show')->name('admin/tallas');
 
-		Route::get('crear', function(){
-			return view('forms.crearTalla');
-		})->name('vistaCrearTalla');
+		Route::get('create', function(){
+			return view('admin.tallas.create_talla');
+		})->name('admin/tallas/create');
 
-		Route::post('insertarTalla', 'TallaController@create');
+		Route::post('insert', 'TallaController@create')->name('admin/tallas/insert');
 
-		Route::get('editarTalla/{talla}', 'TallaController@verTalla')->name('editarTalla');
+		Route::get('edit/{talla}', 'TallaController@edit')->name('admin/tallas/edit');
 
-		Route::post('updateTalla/{talla}', 'TallaController@update')->name('updateTalla');
+		Route::post('update/{talla}', 'TallaController@update')->name('admin/tallas/update');
 
-		Route::get('eliminarTalla/{talla}', 'TallaController@delete')->name('eliminarTalla');
+		Route::get('delete/{talla}', 'TallaController@delete')->name('admin/tallas/delete');
 	});
 });
-
-
 
 Route::get('home', 'HomeController@index')->name('home');

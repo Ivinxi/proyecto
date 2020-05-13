@@ -15,14 +15,14 @@ class TallaController extends Controller
     {
         $tallas = Talla::get();
 
-        return view('admin.mostrarTallas', [ 'tallas' => $tallas]);
+        return view('admin.tallas.show_talla', [ 'tallas' => $tallas]);
     }
 
     //MOSTRAR UNA TALLA
 
-    public function verTalla(Talla $talla)
+    public function edit(Talla $talla)
     {
-        return view('forms.updateTalla', [ 'talla' => $talla]);
+        return view('admin.tallas.update_talla', [ 'talla' => $talla]);
     }
 
     //CREAR TALLA
@@ -43,7 +43,7 @@ class TallaController extends Controller
 
 	    	$talla->save();
 
-            return redirect()->back()->with('success', true);
+            return redirect()->route('admin/tallas')->with('success', true);
     	}
     }
 
@@ -63,7 +63,7 @@ class TallaController extends Controller
 
             $talla->save();
 
-            return redirect()->route('tallas')->with('success', true);
+            return redirect()->route('admin/tallas')->with('success', true);
         }
     }
 
@@ -80,11 +80,9 @@ class TallaController extends Controller
 
     public function delete(Talla $talla)
     {
-
         $talla->delete();
 
-        return redirect()->route('tallas')->with('success', true);
-        
+        return redirect()->route('admin/tallas')->with('success', true);      
     }
 
 }

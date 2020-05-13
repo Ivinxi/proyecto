@@ -12,7 +12,7 @@
 				<h2>ÉXITO</h2>
 			@endif
 
-			<form action="{{ route('updateTalla', [$talla]) }}" method="POST">
+			<form action="{{ route('admin/tallas/update', [$talla]) }}" method="POST">
 				@csrf
 
 				<div class="form-group">
@@ -26,7 +26,7 @@
 				</div>	
 
 				<button type="submit" class="btn btn-primary btn-sm btn-admin">Guardar</button>
-				<a href="{{ route('tallas') }}"><button type="button" class="btn btn-primary btn-sm btn-admin">Volver</button></a>
+				<a href="{{ route('admin/tallas') }}"><button type="button" class="btn btn-primary btn-sm btn-admin">Volver</button></a>
 
 			</form>
 
