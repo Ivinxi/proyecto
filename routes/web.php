@@ -26,10 +26,6 @@ Route::prefix('admin')->group(function(){
 
 		Route::get('/', 'TallaController@show')->name('admin/tallas');
 
-		Route::get('create', function(){
-			return view('admin.tallas.create_talla');
-		})->name('admin/tallas/create');
-
 		Route::post('insert', 'TallaController@create')->name('admin/tallas/insert');
 
 		Route::get('edit/{talla}', 'TallaController@edit')->name('admin/tallas/edit');
@@ -38,6 +34,20 @@ Route::prefix('admin')->group(function(){
 
 		Route::get('delete/{talla}', 'TallaController@delete')->name('admin/tallas/delete');
 	});
+	
+	Route::prefix('colors')->group(function(){
+
+		Route::get('/', 'ColorController@show')->name('admin/colors');
+
+		Route::post('insert', 'ColorController@create')->name('admin/colors/insert');
+
+		Route::get('edit/{color}', 'ColorController@edit')->name('admin/colors/edit');
+
+		Route::post('update/{color}', 'ColorController@update')->name('admin/colors/update');
+
+		Route::get('delete/{color}', 'ColorController@delete')->name('admin/colors/delete');
+	});
+	
 });
 
 Route::get('home', 'HomeController@index')->name('home');

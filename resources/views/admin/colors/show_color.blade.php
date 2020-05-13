@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@include('admin.tallas.create_talla')
+@include('admin.colors.create_color')
 
 @section('titulo')
-	TALLAS
+	COLORES
 @endsection
 
 @section('content')
@@ -12,14 +12,14 @@
 			<div class="col-md-5">
 				<div class="card">
 					<div class="card-header text-center">
-						@yield('titulo')
-						<button type="button" data-toggle="modal" data-target="#modalCreate">
-							<i class="fas fa-plus-circle"></i>
+						<a class="titulosAdmin">@yield('titulo')</a>
+						<button type="button" class="btnAdd" data-toggle="tooltip" data-placement="right" title="Añadir nuevo" data-toggle="modal" data-target="#modalCreate">
+							<i class="fas fa-plus"></i>
 						</button>
 					</div>
 					<div class="card-body">
-				     	@if($errors->has('nombre_talla'))
-		             		@foreach ($errors->get('nombre_talla') as $message)
+				     	@if($errors->has('nombre_color'))
+		             		@foreach ($errors->get('nombre_color') as $message)
 		            			<div class="alert alert-danger alert-dismissible fade show" role="alert">
  									<strong>Error: </strong> {{ $message }}
   									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,21 +38,20 @@
 						    	</tr>
 							</thead>
 						    <tbody>
-						    	@foreach ($tallas as $talla)
+						    	@foreach ($colors as $color)
 						  			<tr>
 						  				<td class="text-center"></td>
-										<td class="text-center">{{ $talla->id_talla}}</td>
-						      			<td class="text-center">{{ $talla->nombre_talla}}</td>
+										<td class="text-center">{{ $color->id_color}}</td>
+						      			<td class="text-center">{{ $color->nombre_color}}</td>
 						      			<td>
-						      				<a href="{{ route('admin/tallas/edit', [$talla]) }}"><button type="button" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></button></a>
-						      				<a href="{{ route('admin/tallas/delete', [$talla]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
+						      				<a href="{{ route('admin/colors/edit', [$color]) }}"><button type="button" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></button></a>
+						      				<a href="{{ route('admin/colors/delete', [$color]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
 						      			</td>
 						  			</tr>
 						 		@endforeach
 						  </tbody>
 						</table>	
 					</div>
-
 				</div>
 			</div>
 		</div>

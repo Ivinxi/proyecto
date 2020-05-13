@@ -39,7 +39,7 @@ class TallaController extends Controller
     	{
 	    	$talla = new Talla;
 
-	    	$talla->nombre_talla = $request->nombre_talla;
+	    	$talla->nombre_talla = $talla->nombre_talla = strtoupper($request->nombre_talla);
 
 	    	$talla->save();
 
@@ -59,7 +59,7 @@ class TallaController extends Controller
         }
         else
         {
-            $talla->nombre_talla = $request->nombre_talla;
+            $talla->nombre_talla = strtoupper($request->nombre_talla);
 
             $talla->save();
 

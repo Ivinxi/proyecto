@@ -3,8 +3,9 @@
 
 @section('content')
 
-<a href="{{ route('admin/tallas') }}">Mostrar talla</a>
+<a href="{{ route('admin/tallas') }}">Mostrar tallas</a>
 
-<a href="{{ route('admin/tallas/create') }}">Crear talla</a>
+<a href="{{ route('admin/colors') }}">Mostrar colores</a>
+
 
 @endsection
