@@ -12,10 +12,12 @@
 			<div class="col-md-5">
 				<div class="card">
 					<div class="card-header text-center">
-						@yield('titulo')
-						<button type="button" data-toggle="modal" data-target="#modalCreate">
-							<i class="fas fa-plus-circle"></i>
-						</button>
+						<a class="titulosAdmin">@yield('titulo')</a>
+						<span data-toggle="modal" data-target="#modalCreate">
+							<button type="button" class="btnAdd" data-toggle="tooltip" data-placement="right" title="Añadir nuevo">
+								<i class="fas fa-plus"></i>
+							</button>
+						</span>
 					</div>
 					<div class="card-body">
 				     	@if($errors->has('nombre_talla'))

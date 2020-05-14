@@ -13,9 +13,11 @@
 				<div class="card">
 					<div class="card-header text-center">
 						<a class="titulosAdmin">@yield('titulo')</a>
-						<button type="button" class="btnAdd" data-toggle="tooltip" data-placement="right" title="Añadir nuevo" data-toggle="modal" data-target="#modalCreate">
-							<i class="fas fa-plus"></i>
-						</button>
+						<span data-toggle="modal" data-target="#modalCreate">
+							<button type="button" class="btnAdd" data-toggle="tooltip" data-placement="right" title="Añadir nuevo">
+								<i class="fas fa-plus"></i>
+							</button>
+						</span>
 					</div>
 					<div class="card-body">
 				     	@if($errors->has('nombre_color'))
