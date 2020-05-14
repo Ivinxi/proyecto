@@ -15,7 +15,7 @@
 
 					<div class="form-group">
 				    	<label for="name">Talla</label>
-				    	<input type="text" class="form-control" id="name" name="nombre_talla">
+				    	<input type="text" class="form-control" id="name" name="nombre_talla" require>
 				   
 					</div>	
 

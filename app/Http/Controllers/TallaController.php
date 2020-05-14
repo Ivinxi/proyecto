@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Talla;
 
 class TallaController extends Controller
@@ -27,53 +26,20 @@ class TallaController extends Controller
 
     //CREAR TALLA
 
-    public function create(Request $request)
+    public function create()
     {
-    	$validator = TallaController::validator($request);
+        Talla::create($this->validator());
 
-    	if($validator->fails())
-    	{
-            return redirect()->back()->withErrors($validator)->withInput();
-    	}
-    	else
-    	{
-	    	$talla = new Talla;
-
-	    	$talla->nombre_talla = $talla->nombre_talla = strtoupper($request->nombre_talla);
-
-	    	$talla->save();
-
-            return redirect()->route('admin/tallas')->with('success', true);
-    	}
+        return redirect(route('admin/tallas'))->with('create', true);
     }
 
     //MODIFICAR TALLA
 
-    public function update(Request $request, Talla $talla)
+    public function update(Talla $talla)
     {
-        $validator = TallaController::validator($request);
+        $talla->update($this->validator());
 
-        if($validator->fails())
-        {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        else
-        {
-            $talla->nombre_talla = strtoupper($request->nombre_talla);
-
-            $talla->save();
-
-            return redirect()->route('admin/tallas')->with('success', true);
-        }
-    }
-
-    //VALIDAR DTOS
-
-    protected function validator(Request $request)
-    {
-    	return Validator::make($request->all(), [
-    		'nombre_talla' => 'required|max:20|regex:/^[\w-]*$/|unique:tallas'
-    	]);
+        return redirect(route('admin/tallas'))->with('update', true);
     }
 
     //ELIMINAR UNA TALLA
@@ -82,7 +48,16 @@ class TallaController extends Controller
     {
         $talla->delete();
 
-        return redirect()->route('admin/tallas')->with('success', true);      
+        return redirect(route('admin/tallas'))->with('delete', true);      
+    }
+
+    //VALIDAR DTOS
+
+    protected function validator()
+    {
+        return request()->validate([
+            'nombre_talla' => 'required|max:20|regex:/^[\w-]*$/|unique:tallas'
+        ]);
     }
 
 }

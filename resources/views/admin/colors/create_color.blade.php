@@ -15,7 +15,7 @@
 
 					<div class="form-group">
 				    	<label for="name">Color</label>
-				    	<input type="text" class="form-control" id="name" name="nombre_color">
+				    	<input type="text" class="form-control" id="name" name="nombre_color" require>
 				   
 					</div>	
 

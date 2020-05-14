@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', 'HomeController@index')->name('home');
+
 //RUTAS ADMIN
 
 Route::prefix('admin')->group(function(){
@@ -47,7 +49,18 @@ Route::prefix('admin')->group(function(){
 
 		Route::get('delete/{color}', 'ColorController@delete')->name('admin/colors/delete');
 	});
-	
-});
 
-Route::get('home', 'HomeController@index')->name('home');
+	Route::prefix('usuarios')->group(function(){
+
+		Route::get('/', 'UsuarioController@show')->name('admin/usuarios');
+
+		Route::post('insert', 'UsuarioController@create')->name('admin/usuarios/insert');
+
+		Route::get('edit/{usuario}', 'UsuarioController@edit')->name('admin/usuarios/edit');
+
+		Route::post('update/{usuario}', 'UsuarioController@update')->name('admin/usuarios/update');
+
+		Route::get('delete/{usuario}', 'UsuarioController@delete')->name('admin/usuarios/delete');
+	});
+		
+});

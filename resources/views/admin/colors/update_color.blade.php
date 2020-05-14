@@ -8,16 +8,12 @@
 
 		<div class="col-md-8">
 
-			@if(session('success') == true)
-				<h2>ÉXITO</h2>
-			@endif
-
 			<form action="{{ route('admin/colors/update', [$color]) }}" method="POST">
 				@csrf
 
 				<div class="form-group">
 				    <label for="name">Color</label>
-				    <input type="text" class="form-control" id="name" name="nombre_color" value="{{ $color->nombre_color }}">
+				    <input type="text" class="form-control" id="name" name="nombre_color" value="{{ $color->nombre_color }}" require>
 				    @if($errors->has('nombre_color'))
 		            	@foreach ($errors->get('nombre_color') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>

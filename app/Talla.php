@@ -11,6 +11,15 @@ class Talla extends Model
 
     protected $primaryKey = 'id_talla';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nombre_talla'
+    ];
+
 
     public function stock()
    	{

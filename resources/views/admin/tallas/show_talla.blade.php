@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @include('admin.tallas.create_talla')
+@include('admin.layouts.alertas')
 
 @section('titulo')
 	TALLAS
@@ -20,14 +21,15 @@
 						</span>
 					</div>
 					<div class="card-body">
+						@yield('alertas')
 				     	@if($errors->has('nombre_talla'))
 		             		@foreach ($errors->get('nombre_talla') as $message)
 		            			<div class="alert alert-danger alert-dismissible fade show" role="alert">
  									<strong>Error: </strong> {{ $message }}
   									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     								<span aria-hidden="true">&times;</span>
-								</button>
-					</div>
+									</button>
+								</div>
 		            		@endforeach
 		            	@endif
 						<table class="table table-striped">

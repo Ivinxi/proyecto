@@ -7,5 +7,7 @@
 
 <a href="{{ route('admin/colors') }}">Mostrar colores</a>
 
+<a href="{{ route('admin/usuarios') }}">Mostrar usuarios</a>
+
 
 @endsection

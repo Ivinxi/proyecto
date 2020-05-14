@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Color;
 
 class ColorController extends Controller
@@ -19,6 +18,7 @@ class ColorController extends Controller
     }
 
     //MOSTRAR UN COLOR
+
     public function edit(Color $color)
     {
         return view('admin.colors.update_color', [ 'color' => $color]);
@@ -26,53 +26,20 @@ class ColorController extends Controller
 
     //CREAR COLOR
 
-    public function create(Request $request)
+    public function create()
     {
-    	$validator = ColorController::validator($request);
+    	Color::create($this->validator());
 
-    	if($validator->fails())
-    	{
-            return redirect()->back()->withErrors($validator)->withInput();
-    	}
-    	else
-    	{
-	    	$color = new Color;
-
-	    	$color->nombre_color = ucfirst(strtolower($request->nombre_color));
-
-	    	$color->save();
-
-            return redirect()->route('admin/colors')->with('success', true);
-    	}
+        return redirect(route('admin/colors'))->with('create', true);
     }
 
     //MODIFICAR COLOR
 
-    public function update(Request $request, Color $color)
+    public function update(Color $color)
     {
-        $validator = ColorController::validator($request);
+        $color->update($this->validator());
 
-        if($validator->fails())
-        {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-        else
-        {
-            $color->nombre_color = ucfirst(strtolower($request->nombre_color));
-
-            $color->save();
-
-            return redirect()->route('admin/colors')->with('success', true);
-        }
-    }
-
-    //VALIDAR DATOS
-
-    protected function validator(Request $request)
-    {
-    	return Validator::make($request->all(), [
-    		'nombre_color' => 'required|max:20|regex:/^[A-zÀ-ú]*$/|unique:colors'
-    	]);
+        return redirect(route('admin/colors'))->with('update', true);
     }
 
     //ELIMINAR UN COLOR
@@ -81,7 +48,16 @@ class ColorController extends Controller
     {
         $color->delete();
 
-        return redirect()->route('admin/colors')->with('success', true);      
+        return redirect(route('admin/colors'))->with('delete', true);      
+    }
+
+    //VALIDAR DATOS
+
+    protected function validator()
+    {
+        return request()->validate([
+            'nombre_color' => 'required|max:20|regex:/^[A-zÀ-ú]*$/|unique:colors'
+        ]);
     }
 
 }

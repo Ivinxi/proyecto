@@ -1,16 +1,16 @@
 @extends('layouts.app')
-@include('admin.colors.create_color')
+@include('admin.usuarios.create_usuario')
 @include('admin.layouts.alertas')
 
 @section('titulo')
-	COLORES
+	USUARIOS
 @endsection
 
 @section('content')
 
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-5">
+			<div class="col-md-7">
 				<div class="card">
 					<div class="card-header text-center">
 						<a class="titulosAdmin">@yield('titulo')</a>
@@ -22,8 +22,8 @@
 					</div>
 					<div class="card-body">
 						@yield('alertas')
-				     	@if($errors->has('nombre_color'))
-		             		@foreach ($errors->get('nombre_color') as $message)
+				     	@if($errors->has('nombre_usuario'))
+		             		@foreach ($errors->get('nombre_usuario') as $message)
 		            			<div class="alert alert-danger alert-dismissible fade show" role="alert">
  									<strong>Error: </strong> {{ $message }}
   									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,18 +38,20 @@
 						   			<th scope="col" class="text-center"></th>
 						   			<th scope="col" class="text-center">ID</th>
 						      		<th scope="col" class="text-center">Nombre</th>
+						      		<th scope="col" class="text-center">Email</th>
 						      		<th scope="col"></th>
 						    	</tr>
 							</thead>
 						    <tbody>
-						    	@foreach ($colors as $color)
+						    	@foreach ($usuarios as $usuario)
 						  			<tr>
 						  				<td class="text-center"></td>
-										<td class="text-center">{{ $color->id_color}}</td>
-						      			<td class="text-center">{{ $color->nombre_color}}</td>
+										<td class="text-center">{{ $usuario->id_usuario}}</td>
+						      			<td class="text-center">{{ $usuario->nombre_usuario}}</td>
+						      			<td class="text-center">{{ $usuario->email}}</td>
 						      			<td>
-						      				<a href="{{ route('admin/colors/edit', [$color]) }}"><button type="button" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></button></a>
-						      				<a href="{{ route('admin/colors/delete', [$color]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
+						      				<a href="{{ route('admin/usuarios/edit', [$usuario]) }}" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></a>
+						      				<a href="{{ route('admin/usuarios/delete', [$usuario]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
 						      			</td>
 						  			</tr>
 						 		@endforeach
