@@ -14,10 +14,10 @@
 					@csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="nombre_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nombre_usuario" type="text" class="form-control @error('nombre_') is-invalid @enderror" name="nombre_usuario" value="{{ old('nombre_usuario') }}" required>
+                                <input id="nombre_usuario" type="text" class="form-control @error('nombre_usuario') is-invalid @enderror" name="nombre_usuario" value="{{ old('nombre_usuario') }}" required>
 
                                 @error('nombre_usuario')
                                     <span class="invalid-feedback" role="alert">
@@ -69,6 +69,109 @@
                                 </select>
                             </div>
                         </div>
+
+                        <!-- DATOS OPCIONALES -->
+						
+						<p class="datos-opc">Datos opcionales</p>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Apellidos</label>
+
+                            <div class="col-md-6">
+                                <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror" name="apellidos" value="{{ old('apellidos') }}">
+
+                                @error('apellidos')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Teléfono</label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" size="9">
+
+                                @error('telefono')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Dirección 1</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion1" type="text" class="form-control @error('direccion1') is-invalid @enderror" name="direccion1" value="{{ old('direccion1') }}">
+
+                                @error('direccion1')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Dirección 2</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion2" type="text" class="form-control @error('direccion2') is-invalid @enderror" name="direccion2" value="{{ old('direccion2') }}">
+
+                                @error('direccion2')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Provincia</label>
+
+                            <div class="col-md-6">
+                                <input id="provincia" type="text" class="form-control @error('provincia') is-invalid @enderror" name="provincia" value="{{ old('provincia') }}">
+
+                                @error('provincia')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Localidad</label>
+
+                            <div class="col-md-6">
+                                <input id="localidad" type="text" class="form-control @error('localidad') is-invalid @enderror" name="localidad" value="{{ old('localidad') }}">
+
+                                @error('localidad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Código Postal</label>
+
+                            <div class="col-md-6">
+                                <input id="codigo_postal" type="text" class="form-control @error('codigo_postal') is-invalid @enderror" name="codigo_postal" value="{{ old('codigo_postal') }}" size="5">
+
+                                @error('codigo_postal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
 			    	<div class="modal-footer">
 			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

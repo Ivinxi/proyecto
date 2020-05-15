@@ -12,8 +12,8 @@
 				@csrf
 
 				<div class="form-group">
-				    <label for="name">Color</label>
-				    <input type="text" class="form-control" id="name" name="nombre_color" value="{{ $color->nombre_color }}" required>
+				    <label for="nombre_color">Color</label>
+				    <input type="text" class="form-control" id="nombre_color" name="nombre_color" value="{{ $color->nombre_color }}" required>
 				    @if($errors->has('nombre_color'))
 		            	@foreach ($errors->get('nombre_color') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>

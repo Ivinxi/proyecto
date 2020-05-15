@@ -35,7 +35,14 @@ class UsuarioController extends Controller
             'nombre_usuario' => request('nombre_usuario'),
             'email' => request('email'),
             'password' => Hash::make(request('password')),
-            'rol' => request('rol')
+            'rol' => request('rol'),
+    		'apellidos' => request('apellidos'),
+    		'telefono' => request('telefono'),
+    		'direccion1' => request('direccion1'),
+    		'direccion2' => request('direccion2'),
+    		'provincia' => request('provincia'),
+    		'localidad' => request('localidad'),
+    		'codigo_postal' => request('codigo_postal'),
         ]);
 
         return redirect(route('admin/usuarios'))->with('create', true);
@@ -45,9 +52,28 @@ class UsuarioController extends Controller
 
     public function update(Usuario $usuario)
     {
-        $usuario->update($this->validator());
+
+        if($usuario->email == request('email')) {
+            $usuario->update([
+                'nombre_usuario' => request('nombre_usuario'),
+                'rol' => request('rol'),
+                'apellidos' => request('apellidos'),
+                'telefono' => request('telefono'),
+                'direccion1' => request('direccion1'),
+                'direccion2' => request('direccion2'),
+                'provincia' => request('provincia'),
+                'localidad' => request('localidad'),
+                'codigo_postal' => request('codigo_postal'),
+            ]);
+        }
+        else
+        {
+            $usuario->update($this->validator());
+        }
+       
 
         return redirect(route('admin/usuarios'))->with('update', true);
+        
     }
 
     //ELIMINAR UN USUARIO
@@ -64,9 +90,16 @@ class UsuarioController extends Controller
     protected function validator()
     {
         return request()->validate([
-			'nombre_usuario' => 'required|max:20|regex:/^[A-zÀ-ú]*$/',
-    		'email' => 'required|max:50|unique:usuarios',
-    		'password' => 'required|min:8',
+			'nombre_usuario' => 'max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'email' => 'max:50|unique:usuarios',
+    		'password' => 'min:8',
+    		'apellidos' => 'nullable|max:50|regex:/^[A-zÀ-ú ]*$/',
+    		'telefono' => 'nullable|size:9|regex:/^[0-9 ]*$/',
+    		'direccion1' => 'nullable|max:50|regex:/^[A-zÀ-ú0-9\,\.\º\-\ª ]*$/',
+    		'direccion2' => 'nullable|max:50|regex:/^[A-zÀ-ú0-9\,\.\º\-\ª ]*$/',
+    		'provincia' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'localidad' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'codigo_postal' => 'nullable|size:5|regex:/^[0-9 ]*$/',  
         ]);
     }
 
