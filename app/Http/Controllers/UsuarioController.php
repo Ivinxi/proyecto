@@ -54,17 +54,7 @@ class UsuarioController extends Controller
     {
 
         if($usuario->email == request('email')) {
-            $usuario->update([
-                'nombre_usuario' => request('nombre_usuario'),
-                'rol' => request('rol'),
-                'apellidos' => request('apellidos'),
-                'telefono' => request('telefono'),
-                'direccion1' => request('direccion1'),
-                'direccion2' => request('direccion2'),
-                'provincia' => request('provincia'),
-                'localidad' => request('localidad'),
-                'codigo_postal' => request('codigo_postal'),
-            ]);
+            $usuario->update($this->validatorSinEmail());
         }
         else
         {
@@ -103,4 +93,17 @@ class UsuarioController extends Controller
         ]);
     }
 
+    protected function validatorSinEmail()
+    {
+        return request()->validate([
+			'nombre_usuario' => 'max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'apellidos' => 'nullable|max:50|regex:/^[A-zÀ-ú ]*$/',
+    		'telefono' => 'nullable|size:9|regex:/^[0-9 ]*$/',
+    		'direccion1' => 'nullable|max:50|regex:/^[A-zÀ-ú0-9\,\.\º\-\ª ]*$/',
+    		'direccion2' => 'nullable|max:50|regex:/^[A-zÀ-ú0-9\,\.\º\-\ª ]*$/',
+    		'provincia' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'localidad' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
+    		'codigo_postal' => 'nullable|size:5|regex:/^[0-9 ]*$/',  
+        ]);
+    }
 }
