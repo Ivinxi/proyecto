@@ -21,17 +21,9 @@
 						</span>
 					</div>
 					<div class="card-body">
+						
 						@yield('alertas')
-				     	@if($errors->has('nombre_usuario'))
-		             		@foreach ($errors->get('nombre_usuario') as $message)
-		            			<div class="alert alert-danger alert-dismissible fade show" role="alert">
- 									<strong>Error: </strong> {{ $message }}
-  									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    								<span aria-hidden="true">&times;</span>
-								</button>
-					</div>
-		            		@endforeach
-		            	@endif
+
 						<table class="table table-striped">
 							<thead>
 								<tr>

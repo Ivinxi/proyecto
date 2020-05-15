@@ -15,8 +15,12 @@
 
 					<div class="form-group">
 				    	<label for="name">Talla</label>
-				    	<input type="text" class="form-control" id="name" name="nombre_talla" require>
-				   
+				    	<input type="text" id="name" class="form-control @error('nombre_talla') is-invalid @enderror" name="nombre_talla" value="{{ old('nombre_talla') }}" required>
+                        @error('nombre_talla')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror				   
 					</div>	
 
 			    	<div class="modal-footer">

@@ -64,7 +64,7 @@ class UsuarioController extends Controller
     protected function validator()
     {
         return request()->validate([
-			'nombre_usuario' => 'required|max:20|regex:/^[A-zÀ-ú]*$/|unique:usuarios',
+			'nombre_usuario' => 'required|max:20|regex:/^[A-zÀ-ú]*$/',
     		'email' => 'required|max:50|unique:usuarios',
     		'password' => 'required|min:8',
         ]);

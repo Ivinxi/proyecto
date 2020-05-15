@@ -15,9 +15,15 @@
 
 					<div class="form-group">
 				    	<label for="name">Color</label>
-				    	<input type="text" class="form-control" id="name" name="nombre_color" require>
+				    	<input type="text" id="name" class="form-control @error('nombre_color') is-invalid @enderror" name="nombre_color" value="{{ old('nombre_color') }}" required>
+
+                        @error('nombre_color')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 				   
-					</div>	
+					</div>
 
 			    	<div class="modal-footer">
 			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
