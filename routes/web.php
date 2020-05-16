@@ -63,4 +63,16 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{usuario}', 'UsuarioController@delete')->name('admin/usuarios/delete');
 	});
 		
+	Route::prefix('productos')->group(function(){
+
+		Route::get('/', 'ProductoController@show')->name('admin/productos');
+
+		Route::post('insert', 'ProductoController@create')->name('admin/productos/insert');
+
+		Route::get('edit/{producto}', 'ProductoController@edit')->name('admin/productos/edit');
+
+		Route::post('update/{producto}', 'ProductoController@update')->name('admin/productos/update');
+
+		Route::get('delete/{producto}', 'ProductoController@delete')->name('admin/productos/delete');
+	});
 });
