@@ -17,13 +17,6 @@ class ColorController extends Controller
         return view('admin.colors.show_color', [ 'colors' => $colors]);
     }
 
-    //MOSTRAR UN COLOR
-
-    public function edit(Color $color)
-    {
-        return view('admin.colors.update_color', [ 'color' => $color]);
-    }
-
     //CREAR COLOR
 
     public function create()
@@ -31,6 +24,13 @@ class ColorController extends Controller
     	Color::create($this->validator());
 
         return redirect(route('admin/colors'))->with('create', true);
+    }
+
+    //MOSTRAR UN COLOR
+
+    public function edit(Color $color)
+    {
+        return view('admin.colors.update_color', [ 'color' => $color]);
     }
 
     //MODIFICAR COLOR

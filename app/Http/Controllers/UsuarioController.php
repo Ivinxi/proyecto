@@ -61,6 +61,9 @@ class UsuarioController extends Controller
             $usuario->update($this->validator());
         }
        
+        $usuario->rol = request('rol');
+
+        $usuario->save();
 
         return redirect(route('admin/usuarios'))->with('update', true);
         

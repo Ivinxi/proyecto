@@ -16,7 +16,7 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="nombre">Nombre</label>
-					    	<input type="text" id="name" class="form-control @error('nombre_producto') is-invalid @enderror" name="nombre_producto" value="{{ old('nombre_producto') }}" required>
+					    	<input type="text" id="name" class="form-control @error('nombre_producto') is-invalid @enderror" name="nombre_producto" value="{{ old('nombre_producto') }}" placeholder="Nombre del producto" required>
 	                        @error('nombre_producto')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="marca">Marca</label>
-					    	<input type="text" id="name" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" required>
+					    	<input type="text" id="name" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" placeholder="Marca" required>
 	                        @error('marca')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="categoria">Categoría</label>
-					    	<input type="text" id="name" class="form-control @error('categoria') is-invalid @enderror" name="categoria" value="{{ old('categoria') }}" required>
+					    	<input type="text" id="name" class="form-control @error('categoria') is-invalid @enderror" name="categoria" value="{{ old('categoria') }}" placeholder="Categoría" required>
 	                        @error('categoria')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>
@@ -66,7 +66,7 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="material">Material</label>
-					    	<input type="text" id="name" class="form-control @error('material') is-invalid @enderror" name="material" value="{{ old('material') }}">
+					    	<input type="text" id="name" class="form-control @error('material') is-invalid @enderror" name="material" value="{{ old('material') }}" placeholder="Material">
 	                        @error('material')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="precio">Precio</label>
-					    	<input type="text" id="name" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" required>
+					    	<input type="text" id="name" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" placeholder="Precio" required>
 	                        @error('precio')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>
@@ -100,10 +100,10 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="oferta">Oferta</label>
-					    	<input type="text" id="oferta" class="form-control @error('oferta') is-invalid @enderror" name="oferta" value="{{ old('oferta') }}">
+					    	<input type="text" id="oferta" class="form-control @error('oferta') is-invalid @enderror" name="oferta" value="{{ old('oferta') }}"placeholder="Oferta">
 
 							<div class="form-check text-right">
-							    <input class="form-check-input" type="checkbox" value="porcentaje" id="porcentaje" name="porcentaje">
+							    <input class="form-check-input" type="checkbox" value="porcentaje" id="porcentaje" name="porcentaje" {{ old('porcentaje') ? "checked":"" }}>
 							    <label class="form-check-label" for="porcentaje">
 							        Porcentaje
 							    </label>
@@ -122,7 +122,7 @@
 
 						<div class="form-group col-md-12">
 					    	<label for="descripcion">Descripción</label>
-					    	<textarea id="name" maxlength="500" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}"></textarea>
+					    	<textarea id="name" maxlength="500" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}" placeholder="Descripción del producto"></textarea>
 	                        @error('descripcion')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>

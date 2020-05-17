@@ -45,7 +45,7 @@
                     </select>
                 </div>
 
-				<!-- <div class="form-group">
+				<div class="form-group">
 				    <label for="name">Apellidos</label>
 				    <input type="apellidos" class="form-control" id="apellidos" name="apellidos" value="{{ $usuario->apellidos }}">
 				    @if($errors->has('apellidos'))
@@ -113,7 +113,7 @@
 		                	<span class="help-block text-error">{{ $message }}</span>
 		              	@endforeach
 		            @endif				   
-				</div> -->
+				</div>
 
 
 				<button type="submit" class="btn btn-primary btn-sm btn-admin">Guardar</button>

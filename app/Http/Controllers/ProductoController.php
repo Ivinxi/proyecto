@@ -25,18 +25,27 @@ class ProductoController extends Controller
     {
         $producto = Producto::create($this->validator());
 
-        if (request()->oferta && request()->porcentaje)
-     	{
-     		$producto->oferta_porcentaje = request()->oferta;
-     	}
-     	else
-     	{
-     		$producto->oferta_plana = request()->oferta;
-     	}
-
-     	$producto->save();
+		$this->cambiaroferta($producto);
 
         return redirect(route('admin/productos'))->with('create', true);
+    }
+
+    //MOSTRAR UN PRODUCTO
+
+    public function edit(Producto $producto)
+    {
+        return view('admin.productos.update_producto', [ 'producto' => $producto]);
+    }
+
+    //MODIFICAR PRODUCTO
+
+    public function update(Producto $producto)
+    {
+        $producto->update($this->validator());
+
+        $this->cambiaroferta($producto);
+
+        return redirect(route('admin/productos'))->with('update', true);
     }
 
     //VALIDAR DATOS
@@ -54,5 +63,21 @@ class ProductoController extends Controller
             'material' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
             'categoria' => 'required|max:20|regex:/^[A-zÀ-ú ]*$/',
         ]);
+    }
+
+    protected function cambiarOferta(Producto $producto)
+    {
+        if (request()->oferta && request()->porcentaje)
+     	{
+     		$producto->oferta_porcentaje = request()->oferta;
+     		$producto->oferta_plana = null;
+     	}
+     	else
+     	{
+     		$producto->oferta_plana = request()->oferta;
+     		$producto->oferta_porcentaje = null;
+     	}
+
+     	$producto->save();
     }
 }
