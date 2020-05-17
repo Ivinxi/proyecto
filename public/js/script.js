@@ -9,3 +9,9 @@ $(document).ready(function(){
 		$('#modalCreate').modal('show');
 
 });
+
+$(document).ready(function($) {
+    $(".table-row").click(function() {
+        $("#collapseExample").collapse('toggle');
+    });
+});

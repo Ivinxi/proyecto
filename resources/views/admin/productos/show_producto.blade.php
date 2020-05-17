@@ -37,8 +37,10 @@
 						    	</tr>
 							</thead>
 						    <tbody>
+
 						    	@foreach ($productos as $producto)
-						  			<tr>
+
+						  			<tr class="table-row" data-toggle="collapse" href="{{ '.stock'.$producto->id_producto }}" role="button" aria-expanded="false" aria-controls="collapseExample">
 										<td class="text-center">{{ $producto->id_producto}}</td>
 						      			<td class="text-center">{{ $producto->nombre_producto}}</td>
 						      			<td class="text-center">{{ $producto->marca}}</td>
@@ -49,8 +51,39 @@
 						      				<a href="{{ route('admin/productos/edit', [$producto]) }}"><button type="button" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></button></a>
 						      				<a href="{{ route('admin/productos/delete', [$producto]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
 						      			</td>
-						  			</tr>
+									</tr>
+									
+									<tr class="collapse vacio {{ 'stock'.$producto->id_producto }}">
+										<td class="text-center"></td>
+						      			<td class="text-center"></td>
+						      			<th class="text-center">Talla</th>
+						      			<th class="text-center">Color</th>
+						      			<th class="text-center">Stock</th>
+						      			<td class="text-center"></td>
+						      			<td class="text-center"></td>
+									</tr>
+
+									@foreach($stocks as $stock)
+
+										@if($stock->id_producto == $producto->id_producto)
+											<tr class="collapse vacio {{ 'stock'.$producto->id_producto }}">
+												<td class="text-center"></td>
+								      			<td class="text-center"></td>
+								      			<td class="text-center">{{ $stock->nombre_talla}}</td>
+								      			<td class="text-center">{{ $stock->nombre_color}}</td>
+								      			<td class="text-center">{{ $stock->cantidad_stock}}</td>
+								      			<td>
+								      				<a href="{{ route('admin/productos/delete', [$producto]) }}"><i class="fas fa-pencil-alt"></i></a>
+								      				<a href="{{ route('admin/productos/delete', [$producto]) }}"><i class="fas fa-trash-alt"></i></a>
+								      			</td>
+								      			<td class="text-center"></td>
+											</tr>
+										@endif
+
+									@endforeach
+													
 						 		@endforeach
+
 						  </tbody>
 						</table>	
 					</div>

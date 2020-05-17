@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Stock;
 
 
 class ProductoController extends Controller
@@ -16,7 +17,13 @@ class ProductoController extends Controller
     {
         $productos = Producto::get();
 
-        return view('admin.productos.show_producto', [ 'productos' => $productos]);
+    	$stocks = Stock::join('productos', 'productos.id_producto', 'stocks.id_producto')
+    				->join('colors', 'colors.id_color', 'stocks.id_color')
+    				->join('tallas', 'tallas.id_talla', 'stocks.id_talla')
+    				->select('stocks.id_producto', 'stocks.cantidad_stock', 'colors.nombre_color', 'tallas.nombre_talla')
+    				->get();
+
+        return view('admin.productos.show_producto', [ 'productos' => $productos, 'stocks' => $stocks ]);
     }
 
     // CREAR UN PRODUCTO
@@ -46,6 +53,15 @@ class ProductoController extends Controller
         $this->cambiaroferta($producto);
 
         return redirect(route('admin/productos'))->with('update', true);
+    }
+
+    //ELIMINAR
+
+    public function delete(Producto $producto)
+    {
+        $producto->delete();
+
+        return redirect(route('admin/productos'))->with('delete', true);      
     }
 
     //VALIDAR DATOS

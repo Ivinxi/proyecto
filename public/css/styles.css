@@ -34,5 +34,13 @@
 	.modal-dialog{
 		max-width:750px;
 	}
-	
+}
+
+.table-row{
+	cursor:pointer;
+}
+
+.vacio td, .vacio th{
+	border-top: none;
+	background-color: white;
 }
