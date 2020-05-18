@@ -19,6 +19,7 @@ class CreateDetallesTable extends Migration
             $table->foreignId('id_factura')->references('id_factura')->on('facturas');
             $table->decimal('precio_detalle', 6, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

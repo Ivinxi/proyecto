@@ -17,6 +17,7 @@ class CreateTallasTable extends Migration
             $table->id('id_talla');
             $table->string('nombre_talla', 20);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

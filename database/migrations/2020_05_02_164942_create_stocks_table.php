@@ -14,14 +14,13 @@ class CreateStocksTable extends Migration
     public function up()
     {
         Schema::create('stocks', function (Blueprint $table) {
+            $table->id('id');
             $table->foreignId('id_producto')->references('id_producto')->on('productos');
             $table->foreignId('id_talla')->references('id_talla')->on('tallas');
             $table->foreignId('id_color')->references('id_color')->on('colors');
             $table->integer('cantidad_stock');
             $table->timestamps();
-
-
-            $table->primary(['id_producto','id_talla','id_color']);
+            $table->softDeletes();
         });
     }
 

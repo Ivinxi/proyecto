@@ -8,6 +8,22 @@ $(document).ready(function(){
 	if(error.length > 0)
 		$('#modalCreate').modal('show');
 
+	var error = $('#modalStock').find('.is-invalid');
+
+	if(error.length > 0)
+		$('#modalStock').modal('show');
+
+	$('.createStock').on('click', function() {
+		var id = $('.createStock').attr('value');
+
+		$('<input>').attr({
+		    type: 'hidden',
+		    id: 'id_producto',
+		    name: 'id_producto',
+		    value: id
+		}).appendTo('#createStock');
+	});
+	
 });
 
 $(document).ready(function($) {

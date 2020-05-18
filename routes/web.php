@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function(){
 		Route::post('update/{talla}', 'TallaController@update')->name('admin/tallas/update');
 
 		Route::get('delete/{talla}', 'TallaController@delete')->name('admin/tallas/delete');
+
+		Route::get('restore/{id_talla}', 'TallaController@restore')->name('admin/tallas/restore');
 	});
 	
 	Route::prefix('colors')->group(function(){
@@ -48,6 +50,8 @@ Route::prefix('admin')->group(function(){
 		Route::post('update/{color}', 'ColorController@update')->name('admin/colors/update');
 
 		Route::get('delete/{color}', 'ColorController@delete')->name('admin/colors/delete');
+
+		Route::get('restore/{id_color}', 'ColorController@restore')->name('admin/colors/restore');
 	});
 
 	Route::prefix('usuarios')->group(function(){
@@ -61,6 +65,8 @@ Route::prefix('admin')->group(function(){
 		Route::post('update/{usuario}', 'UsuarioController@update')->name('admin/usuarios/update');
 
 		Route::get('delete/{usuario}', 'UsuarioController@delete')->name('admin/usuarios/delete');
+
+		Route::get('restore/{id_usuario}', 'UsuarioController@restore')->name('admin/usuarios/restore');
 	});
 		
 	Route::prefix('productos')->group(function(){
@@ -74,5 +80,9 @@ Route::prefix('admin')->group(function(){
 		Route::post('update/{producto}', 'ProductoController@update')->name('admin/productos/update');
 
 		Route::get('delete/{producto}', 'ProductoController@delete')->name('admin/productos/delete');
+
+		Route::get('restore/{id_producto}', 'ProductoController@restore')->name('admin/productos/restore');
+
+		Route::post('insertStock', 'StockController@create')->name('admin/productos/insertStock');
 	});
 });

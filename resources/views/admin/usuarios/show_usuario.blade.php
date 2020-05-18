@@ -10,7 +10,7 @@
 
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header text-center">
 						<span class="titulosAdmin">@yield('titulo')</span>
@@ -27,7 +27,6 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-						   			<th scope="col" class="text-center"></th>
 						   			<th scope="col" class="text-center">ID</th>
 						      		<th scope="col" class="text-center">Nombre</th>
 						      		<th scope="col" class="text-center">Email</th>
@@ -37,13 +36,15 @@
 						    <tbody>
 						    	@foreach ($usuarios as $usuario)
 						  			<tr>
-						  				<td class="text-center"></td>
-										<td class="text-center">{{ $usuario->id_usuario}}</td>
-						      			<td class="text-center">{{ $usuario->nombre_usuario}}</td>
-						      			<td class="text-center">{{ $usuario->email}}</td>
-						      			<td>
-						      				<a href="{{ route('admin/usuarios/edit', [$usuario]) }}" class="btn btn-primary btn-sm btn-admin"><i class="fas fa-pencil-alt"></i></a>
-						      				<a href="{{ route('admin/usuarios/delete', [$usuario]) }}" class="btn btn-danger btn-sm btn-admin"><i class="fas fa-trash-alt"></i></a>
+										<td class="text-center {{ $usuario->trashed() ? 'inactive':'' }}">{{ $usuario->id_usuario}}</td>
+						      			<td class="text-center {{ $usuario->trashed() ? 'inactive':'' }}">{{ $usuario->nombre_usuario}}</td>
+						      			<td class="text-center {{ $usuario->trashed() ? 'inactive':'' }}">{{ $usuario->email}}</td>
+						      			<td class="text-center">
+						      				<a href="{{ route('admin/usuarios/edit', [$usuario]) }}" class="btn btn-primary btn-sm btn-admin {{ $usuario->trashed() ? 'inactive':'' }}"><i class="fas fa-pencil-alt"></i></a>
+						      				<a href="{{ route('admin/usuarios/delete', [$usuario]) }}" class="btn btn-danger btn-sm btn-admin {{ $usuario->trashed() ? 'inactive':'' }}"><i class="fas fa-trash-alt"></i></a>
+						      				@if($usuario->trashed())
+						  						<a href="{{ route('admin/usuarios/restore', [$usuario->id_usuario]) }}" class="btn-restore"><i class="fas fa-redo-alt"></i></a>
+											@endif
 						      			</td>
 						  			</tr>
 						 		@endforeach

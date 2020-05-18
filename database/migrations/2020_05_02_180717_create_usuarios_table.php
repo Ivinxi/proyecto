@@ -28,6 +28,7 @@ class CreateUsuariosTable extends Migration
             $table->integer('codigo_postal')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -9,7 +9,22 @@
 }
 
 .btn-admin {
-	min-width: 70px;
+	min-width: 30px;
+}
+
+
+.inactive {
+	/*background: hsl(0, 92%, 87%) !important;*/
+	opacity: 0.5;
+	user-select: none;
+}
+
+.btn-admin.inactive {
+	display: none;
+}
+
+.btn-restore {
+	color: #38C709;
 }
 
 #menu-categoria .dropdown-menu {

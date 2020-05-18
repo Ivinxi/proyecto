@@ -12,8 +12,10 @@ class ColorController extends Controller
 
     public function show()
     {
-        $colors = Color::get();
-
+        $colors = Color::withTrashed()
+                    ->orderBy('deleted_at')
+                    ->get();
+                    
         return view('admin.colors.show_color', [ 'colors' => $colors]);
     }
 
@@ -49,6 +51,15 @@ class ColorController extends Controller
         $color->delete();
 
         return redirect(route('admin/colors'))->with('delete', true);      
+    }
+
+    //RESTAURAR COLOR
+
+    public function restore($id_color)
+    {
+        Color::withTrashed()->find($id_color)->restore();
+
+        return redirect(route('admin/colors'))->with('restore', true);
     }
 
     //VALIDAR DATOS

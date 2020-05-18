@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Producto;
 use App\Stock;
+use App\Talla;
+use App\Color;
 
 
 class ProductoController extends Controller
@@ -15,7 +17,13 @@ class ProductoController extends Controller
 
     public function show()
     {
-        $productos = Producto::get();
+        $productos = Producto::withTrashed()
+                    ->orderBy('deleted_at')
+                    ->get();
+
+        $tallas = Talla::withTrashed()->get();
+
+        $colors = Color::withTrashed()->get();
 
     	$stocks = Stock::join('productos', 'productos.id_producto', 'stocks.id_producto')
     				->join('colors', 'colors.id_color', 'stocks.id_color')
@@ -23,7 +31,7 @@ class ProductoController extends Controller
     				->select('stocks.id_producto', 'stocks.cantidad_stock', 'colors.nombre_color', 'tallas.nombre_talla')
     				->get();
 
-        return view('admin.productos.show_producto', [ 'productos' => $productos, 'stocks' => $stocks ]);
+        return view('admin.productos.show_producto', [ 'productos' => $productos, 'stocks' => $stocks, 'tallas' => $tallas, 'colors' => $colors ]);
     }
 
     // CREAR UN PRODUCTO
@@ -62,6 +70,15 @@ class ProductoController extends Controller
         $producto->delete();
 
         return redirect(route('admin/productos'))->with('delete', true);      
+    }
+
+    //RESTAURAR USUARIO
+
+    public function restore($id_producto)
+    {
+        Producto::withTrashed()->find($id_producto)->restore();
+
+        return redirect(route('admin/productos'))->with('restore', true);
     }
 
     //VALIDAR DATOS

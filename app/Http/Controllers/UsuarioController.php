@@ -11,7 +11,9 @@ class UsuarioController extends Controller
 
     public function show()
     {
-        $usuarios = Usuario::get();
+        $usuarios = Usuario::withTrashed()
+                    ->orderBy('deleted_at')
+                    ->get();
 
         return view('admin.usuarios.show_usuario', [ 'usuarios' => $usuarios]);
     }
@@ -73,9 +75,20 @@ class UsuarioController extends Controller
 
     public function delete(Usuario $usuario)
     {
+
         $usuario->delete();
 
+
         return redirect(route('admin/usuarios'))->with('delete', true);      
+    }
+
+    //RESTAURAR USUARIO
+
+    public function restore($id_usuario)
+    {
+        Usuario::withTrashed()->find($id_usuario)->restore();
+
+        return redirect(route('admin/usuarios'))->with('restore', true);
     }
 
     //VALIDAR DATOS

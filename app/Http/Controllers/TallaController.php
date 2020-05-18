@@ -12,7 +12,9 @@ class TallaController extends Controller
 
     public function show()
     {
-        $tallas = Talla::get();
+        $tallas = Talla::withTrashed()
+                    ->orderBy('deleted_at')
+                    ->get();
 
         return view('admin.tallas.show_talla', [ 'tallas' => $tallas]);
     }
@@ -51,6 +53,14 @@ class TallaController extends Controller
         return redirect(route('admin/tallas'))->with('delete', true);      
     }
 
+    //RESTAURAR USUARIO
+
+    public function restore($id_talla)
+    {
+        Talla::withTrashed()->find($id_talla)->restore();
+
+        return redirect(route('admin/tallas'))->with('restore', true);
+    }
     //VALIDAR DTOS
 
     protected function validator()

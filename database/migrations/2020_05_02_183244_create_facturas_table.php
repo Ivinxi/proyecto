@@ -19,6 +19,7 @@ class CreateFacturasTable extends Migration
             $table->decimal('precio_factura', 8, 2);
             $table->enum('estado', ['Pendiente','Enviado','Entregado'])->default('pendiente');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
