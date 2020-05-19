@@ -12,11 +12,11 @@
 			<div class="modal-body">
 				<form action="{{ route('admin/productos/insertStock') }}" method="POST" id="createStock">
 					@csrf
-
+					<input type="hidden" name="id_producto" id="id_producto">
 					<div class="form-group">
 				    	<label for="id_talla">A</label>
 
-				    	<select class="form-control @error('id_talla') is-invalid @enderror" name="id_talla">
+				    	<select class="form-control @error('id_talla') is-invalid @enderror" name="id_talla" id="id_talla">
 							@foreach($tallas as $talla)
 								<<option value="{{ $talla->id_talla }}">{{ $talla->nombre_talla }}</option>
 							@endforeach
@@ -34,7 +34,7 @@
 					<div class="form-group">
 				    	<label for="id_color">A</label>
 
-				    	<select class="form-control @error('id_color') is-invalid @enderror" name="id_color">
+				    	<select class="form-control @error('id_color') is-invalid @enderror" name="id_color" id="id_color">
 							@foreach($colors as $color)
 								<<option value="{{ $color->id_color }}">{{ $color->nombre_color }}</option>
 							@endforeach

@@ -14,14 +14,11 @@ $(document).ready(function(){
 		$('#modalStock').modal('show');
 
 	$('.createStock').on('click', function() {
-		var id = $('.createStock').attr('value');
+		var id = $(this).attr('value');
 
-		$('<input>').attr({
-		    type: 'hidden',
-		    id: 'id_producto',
-		    name: 'id_producto',
-		    value: id
-		}).appendTo('#createStock');
+		$('#createStock #id_producto').attr('value', id);
+
+	
 	});
 	
 });

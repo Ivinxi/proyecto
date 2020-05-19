@@ -12,28 +12,56 @@ class StockController extends Controller
 
     public function create()
     {
-        $stock = $this->validator();
+        $stocknuevo = $this->validator();
 
-        $as = Stock::where('id_producto', request()->id_producto)->where('id_talla', request()->id_talla)->where('id_color', request()->id_color)->first();
+        $stock = Stock::withTrashed()->where('id_producto', request()->id_producto)->where('id_talla', request()->id_talla)->where('id_color', request()->id_color)->first();
 
 
-        if($as)
+        if($stock)
         {
-            $as->cantidad_stock = $as->cantidad_stock + request()->cantidad_stock;
-            $as->save();
+            if($stock->trashed())
+            {
+                $stock->restore();
+            }
+            $stock->cantidad_stock = $stock->cantidad_stock + request()->cantidad_stock;
+            $stock->save();
         }
         else
         {
-            Stock::create($stock);
+            Stock::create($stocknuevo);
         }
 
 
         return redirect(route('admin/productos'))->with('create', true);
     }
 
-    protected function sumarStock(Stock $stock) 
+    protected function restarStock()
     {
-        
+        $stocknuevo = $this->validator();
+
+        $stock = Stock::where('id_producto', request()->id_producto)->where('id_talla', request()->id_talla)->where('id_color', request()->id_color)->first();
+
+        $stock->cantidad_stock = $stock->cantidad_stock - request()->cantidad_stock;
+
+        if($stock->cantidad_stock < 0)
+        {
+            $stock->cantidad_stock = 0;
+        }
+
+        $stock->save();      
+    }
+
+    //ELIMINAR UN STOCK
+
+    public function delete(Stock $stock)
+    {
+        $stock->cantidad_stock = 0;
+
+        $stock->save();
+
+        $stock->delete();
+
+        return redirect(route('admin/productos'))->with('delete', true);      
     }
 
     //VALIDAR DATOS

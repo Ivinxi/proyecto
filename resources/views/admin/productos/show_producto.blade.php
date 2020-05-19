@@ -57,6 +57,7 @@
 						      			</td>
 									</tr>
 									
+									@if($producto->has('stock'))
 									<tr class="collapse vacio {{ 'stock'.$producto->id_producto }}">
 										<td class="text-center"></td>
 						      			<td class="text-center"></td>
@@ -70,7 +71,7 @@
 										</td>
 						      			<td class="text-center"></td>
 									</tr>
-
+									@endif
 									@foreach($stocks as $stock)
 
 										@if($stock->id_producto == $producto->id_producto)
@@ -81,8 +82,7 @@
 								      			<td class="text-center">{{ $stock->nombre_color}}</td>
 								      			<td class="text-center">{{ $stock->cantidad_stock}}</td>
 								      			<td class="text-center">
-								      				<a href="{{ route('admin/productos/delete', [$producto]) }}"><i class="fas fa-pencil-alt"></i></a>
-								      				<a href="{{ route('admin/productos/delete', [$producto]) }}"><i class="fas fa-trash-alt"></i></a>
+						      						<a href="{{ route('admin/productos/deleteStock', [$stock]) }}"><i class="fas fa-trash-alt"></i></a>
 								      			</td>
 								      			<td class="text-center"></td>
 											</tr>

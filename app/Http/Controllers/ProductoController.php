@@ -28,7 +28,7 @@ class ProductoController extends Controller
     	$stocks = Stock::join('productos', 'productos.id_producto', 'stocks.id_producto')
     				->join('colors', 'colors.id_color', 'stocks.id_color')
     				->join('tallas', 'tallas.id_talla', 'stocks.id_talla')
-    				->select('stocks.id_producto', 'stocks.cantidad_stock', 'colors.nombre_color', 'tallas.nombre_talla')
+    				->select('stocks.id', 'stocks.id_producto', 'stocks.cantidad_stock', 'colors.nombre_color', 'tallas.nombre_talla')
     				->get();
 
         return view('admin.productos.show_producto', [ 'productos' => $productos, 'stocks' => $stocks, 'tallas' => $tallas, 'colors' => $colors ]);

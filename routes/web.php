@@ -84,5 +84,7 @@ Route::prefix('admin')->group(function(){
 		Route::get('restore/{id_producto}', 'ProductoController@restore')->name('admin/productos/restore');
 
 		Route::post('insertStock', 'StockController@create')->name('admin/productos/insertStock');
+
+		Route::get('deleteStock/{stock}', 'StockController@delete')->name('admin/productos/deleteStock');
 	});
 });
