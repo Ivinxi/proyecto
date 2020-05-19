@@ -10,7 +10,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="{{ route('admin/productos/insert') }}" method="POST">
+				<form action="{{ route('admin/productos/insert') }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="row">
 
@@ -136,7 +136,7 @@
 
 						<div class="form-group col-md-6 offset-md-3">
 					    	<label for="foto_producto">Foto</label>
-					    	<input type="file" id="name" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('material') }}">
+					    	<input type="file" id="foto_producto" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('foto_producto') }}">
 	                        @error('foto_producto')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>

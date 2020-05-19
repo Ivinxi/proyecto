@@ -17,7 +17,6 @@ $(document).ready(function(){
 		var id = $(this).attr('value');
 
 		$('#createStock #id_producto').attr('value', id);
-
 	
 	});
 	

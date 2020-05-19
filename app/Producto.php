@@ -51,7 +51,7 @@ class Producto extends Model
 
     public function foto()
     {
-      if(empty($this->foto_porcentaje))
+      if(empty($this->foto_producto))
         return 'No';
       else
         return 'Sí';

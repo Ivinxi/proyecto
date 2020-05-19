@@ -25,7 +25,7 @@
 						
 						@yield('alertas')
 
-						<table class="table table-striped">
+						<table class="table">
 							<thead>
 								<tr>
 						   			<th scope="col" class="text-center">ID</th>

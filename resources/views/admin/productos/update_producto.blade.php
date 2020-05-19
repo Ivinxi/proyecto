@@ -8,7 +8,7 @@
 
 		<div class="col-md-8">
 
-			<form action="{{ route('admin/productos/update', [$producto]) }}" method="POST">
+			<form action="{{ route('admin/productos/update', [$producto]) }}" method="POST" enctype="multipart/form-data">
 				@csrf
 		
 				<div class="row">
@@ -134,8 +134,13 @@
 				<div class="row">
 
 					<div class="form-group col-md-6 offset-md-3">
+						@if($producto->foto_producto)
+						<div class="row">
+							<img src="/{{$producto->foto_producto}}" alt="foto" height="300px" width="300px">
+						</div>
+						@endif
 				    	<label for="foto_producto">Foto</label>
-				    	<input type="file" id="name" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('material') }}">
+				    	<input type="file" id="foto_producto" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('foto_producto') }}">
                         @error('foto_producto')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

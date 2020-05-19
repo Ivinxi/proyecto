@@ -40,6 +40,8 @@ class ProductoController extends Controller
     {
         $producto = Producto::create($this->validator());
 
+        $this->uploadFoto($producto);
+
 		$this->cambiaroferta($producto);
 
         return redirect(route('admin/productos'))->with('create', true);
@@ -56,7 +58,10 @@ class ProductoController extends Controller
 
     public function update(Producto $producto)
     {
+        
         $producto->update($this->validator());
+
+        $this->uploadFoto($producto);
 
         $this->cambiaroferta($producto);
 
@@ -95,6 +100,7 @@ class ProductoController extends Controller
             'target' => '',
             'material' => 'nullable|max:20|regex:/^[A-zÀ-ú ]*$/',
             'categoria' => 'required|max:20|regex:/^[A-zÀ-ú ]*$/',
+            'foto_producto' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     }
 
@@ -112,5 +118,24 @@ class ProductoController extends Controller
      	}
 
      	$producto->save();
+    }
+
+    protected function uploadFoto(Producto $producto)
+    {
+
+        if ($file = request()->file('foto_producto')) {
+
+            $upload_path = 'images/';
+
+            $fileName = date('YmdHis') . '.' . $file->getClientOriginalExtension();
+
+            $image_url = $upload_path . $fileName;
+
+            $file->move(public_path('images'), $fileName);
+
+            $producto->foto_producto = $image_url;
+
+        }
+        $producto->save();
     }
 }
