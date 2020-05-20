@@ -1,0 +1,50 @@
+.btn-admin {
+	min-width: 30px;
+}
+
+.inactive {
+	/*background: hsl(0, 92%, 87%) !important;*/
+	opacity: 0.5;
+	user-select: none;
+}
+
+.btn-admin.inactive {
+	display: none;
+}
+
+.btn-restore {
+	color: #38C709;
+}
+
+#menu-categoria .dropdown-menu {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
+.btnAdd{
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	border: 1px solid #545454;
+}
+
+.titulosAdmin{
+	font-weight: bold;
+	font-size: 120%;
+}
+
+@media (min-width: 480px) {
+	.modal-dialog{
+		max-width:750px;
+	}
+}
+
+.table-row{
+	cursor:pointer;
+}
+
+.vacio td, .vacio th{
+	border-top: none;
+	background-color: white;
+}

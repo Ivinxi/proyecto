@@ -49,6 +49,26 @@ class Producto extends Model
       return $oferta;
     }
 
+    public function calcularOferta()
+    {
+      $oferta = '';
+
+      if(!empty($this->oferta_porcentaje))
+      {
+        $oferta = $this->precio - ($this->precio * $this->oferta_porcentaje /100);
+      }
+      elseif(!empty($this->oferta_plana))
+        $oferta = $this->precio - $this->oferta_plana;
+
+      return number_format((float)$oferta, 2, '.', '');
+    }
+
+    public function precio()
+    {
+      return number_format((float)$this->precio, 2, '.', '');
+    }
+
+
     public function foto()
     {
       if(empty($this->foto_producto))

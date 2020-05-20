@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app_admin')
 @include('admin.tallas.create_talla')
 @include('admin.layouts.alertas')
 

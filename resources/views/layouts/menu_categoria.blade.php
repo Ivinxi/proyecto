@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="menu-categoria">
 	<div class="container">
-		<ul class="nav nav-pills">
+		<ul class="nav nav-pills justify-content-center">
 	 		<li class="nav-item dropdown dropdown-hover">
 				<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
 				<div class="dropdown-menu">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app_admin')
 @include('admin.productos.create_producto')
 @include('admin.layouts.alertas')
 @include('admin.stocks.create_stock')
@@ -40,7 +40,7 @@
 						    <tbody>
 
 						    	@foreach ($productos as $producto)
-
+									
 						  			<tr>
 										<td class="text-center table-row {{ $producto->trashed() ? 'inactive':'' }}" data-toggle="collapse" href="{{ '.stock'.$producto->id_producto }}" role="button" aria-expanded="false" aria-controls="collapseExample">{{ $producto->id_producto}}</td>
 						      			<td class="text-center table-row {{ $producto->trashed() ? 'inactive':'' }}" data-toggle="collapse" href="{{ '.stock'.$producto->id_producto }}" role="button" aria-expanded="false" aria-controls="collapseExample">{{ $producto->nombre_producto}}</td>

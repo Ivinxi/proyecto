@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stylesadmin.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -83,12 +83,8 @@
         </main>
 
 
-        <footer class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Iván Herrera Rodriguez</p>
-                </div>
-            </div>
+        <footer>
+            <p>Iván Herrera Rodriguez</p>
         </footer>
     </div>
 </body>

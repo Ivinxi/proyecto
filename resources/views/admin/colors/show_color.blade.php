@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app_admin')
 @include('admin.colors.create_color')
 @include('admin.layouts.alertas')
 
