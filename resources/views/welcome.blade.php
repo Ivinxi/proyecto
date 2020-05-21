@@ -31,14 +31,17 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- CARRUSEL NOVEDADES -->
+
 	<div class="row">
 		<div class="col-md-12">
 			<div id="carousel-novedades" class="carousel slide carousel-multi-item v-2 product-carousel carousel-fade" data-ride="carousel" data-interval="12000">
 				<h3>NOVEDADES</h3>
-	        <!--Controls-->
+	        	<!--Controls-->
 		        <div class="controls-top my-3 text-right d-inline-block">
-		          <a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-		          <a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+		        	<a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+		        	<a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 		        </div>
 		        <!--/.Controls-->
 
@@ -67,14 +70,16 @@
 		</div>
 	</div>
 
+	<!-- CARRUSEL OFERTAS -->
+
 	<div class="row seccion ofertas">
 		<div class="col-md-12">
 			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel" data-ride="carousel">
 				<h3>OFERTAS</h3>
-	        <!--Controls-->
+	       		<!--Controls-->
 		        <div class="controls-top my-3 text-right d-inline-block">
-		          <a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-		          <a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+		        	<a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+		        	<a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 		        </div>
 		        <!--/.Controls-->
 
@@ -103,6 +108,44 @@
 		</div>
 	</div>
 	
+	<!-- CARRUSEL ÚLTIMAS UNIDADES -->
+
+	<div class="row seccion ultimas">
+		<div class="col-md-12">
+			<div id="carousel-ultimas" class="carousel slide carousel-multi-item v-2 product-carousel" data-ride="carousel">
+				<h3>ÚLTIMAS UNIDADES</h3>
+	        	<!--Controls-->
+		        <div class="controls-top my-3 text-right d-inline-block">
+		        	<a class="btn-floating btn-sm" href="#carousel-ultimas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+		        	<a class="btn-floating btn-sm" href="#carousel-ultimas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+		        </div>
+		        <!--/.Controls-->
+
+		        <div class="carousel-inner" role="listbox">
+				@foreach($ultimas as $ultima)
+		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
+		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
+		              <div class="card mb-2">
+		              	<a href="#">
+			                <div class="view overlay">
+			                  <img class="card-img-top" src="/{{ $ultima->foto_producto }}" alt="Card image cap">
+			                </div>
+			                <div class="card-body p-3">
+			                  <h5 class="card-title font-weight-bold fuchsia-rose-text mb-0">{{ $ultima->nombre_producto }}</h5>
+			                  <span class="chili-pepper-text mb-0 {{ $ultima->oferta()? 'oferta':''}}">{{ $ultima->precio() }}€</span>
+			                  @if($ultima->oferta())<span class="chili-pepper-text mb-0">{{ $ultima->calcularOferta() }}€</span>@endif
+			                </div>
+		              		
+		              	</a>
+		              </div>
+		            </div>
+		          </div>
+		          @endforeach
+	        	</div>
+	      	</div>
+		</div>
+	</div>
+
 	<h3><a href="{{ route('admin/tallas') }}">-Mostrar tallas</a></h3>
 
 	<h3><a href="{{ route('admin/colors') }}">-Mostrar colores</a></h3>

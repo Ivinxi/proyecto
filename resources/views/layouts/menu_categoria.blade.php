@@ -1,6 +1,6 @@
 @section('menu_categoria')
 
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="menu-categoria">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top" id="menu-categoria">
 	<div class="container">
 		<ul class="nav nav-pills justify-content-center">
 	 		<li class="nav-item dropdown dropdown-hover">
