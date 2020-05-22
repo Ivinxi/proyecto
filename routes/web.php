@@ -16,11 +16,17 @@ Auth::routes();
 
 Route::get('/', 'Controller@index')->name('/');
 
+Route::get('/{producto}', 'ProductoController@producto')->name('producto.view');
+
 Route::get('home', 'HomeController@index')->name('home');
 
 //RUTAS ADMIN
 
 Route::prefix('admin')->group(function(){
+
+	Route::get('admin/', function(){
+		return view('admin.admin');
+	});
 
 	Route::prefix('tallas')->group(function(){
 

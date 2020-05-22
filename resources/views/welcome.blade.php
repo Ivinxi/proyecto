@@ -44,13 +44,12 @@
 		        	<a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 		        </div>
 		        <!--/.Controls-->
-
 		        <div class="carousel-inner" role="listbox">
 				@foreach($novedades as $novedad)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
 		              <div class="card mb-2">
-		              	<a href="#">
+		              	<a href="{{ route('producto.view', [ $novedad])}}">
 			                <div class="view overlay">
 			                  <img class="card-img-top" src="/{{ $novedad->foto_producto }}" alt="Card image cap">
 			                </div>
@@ -82,13 +81,12 @@
 		        	<a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 		        </div>
 		        <!--/.Controls-->
-
 		        <div class="carousel-inner" role="listbox">
 				@foreach($ofertas as $oferta)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
 		              <div class="card mb-2">
-		              	<a href="#">
+		              	<a href="{{ route('producto.view', [ $oferta])}}">
 			                <div class="view overlay">
 			                  <img class="card-img-top" src="/{{ $oferta->foto_producto }}" alt="Card image cap">
 			                </div>
@@ -120,13 +118,12 @@
 		        	<a class="btn-floating btn-sm" href="#carousel-ultimas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 		        </div>
 		        <!--/.Controls-->
-
 		        <div class="carousel-inner" role="listbox">
 				@foreach($ultimas as $ultima)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
 		              <div class="card mb-2">
-		              	<a href="#">
+		              	<a href="{{ route('producto.view', [ $ultima])}}">
 			                <div class="view overlay">
 			                  <img class="card-img-top" src="/{{ $ultima->foto_producto }}" alt="Card image cap">
 			                </div>

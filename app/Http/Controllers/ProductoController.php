@@ -13,7 +13,13 @@ class ProductoController extends Controller
 {
 
 
-	//MOSTRAR TODOS LOS PRODUCTOS
+	
+    public function producto(Producto $producto)
+    {
+        return view('producto', ['producto' => $producto]);
+    }
+
+//MOSTRAR TODOS LOS PRODUCTOS
 
     public function show()
     {
