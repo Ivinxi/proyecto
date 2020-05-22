@@ -22,11 +22,11 @@ Route::get('home', 'HomeController@index')->name('home');
 
 //RUTAS ADMIN
 
-Route::prefix('admin')->group(function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 
-	Route::get('admin/', function(){
+	Route::get('home', function(){
 		return view('admin.admin');
-	});
+	})->name('admin/home');
 
 	Route::prefix('tallas')->group(function(){
 
