@@ -25,7 +25,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::withTrashed()
                     ->orderBy('deleted_at')
-                    ->get();
+                    ->paginate(15);
 
         $tallas = Talla::withTrashed()->get();
 

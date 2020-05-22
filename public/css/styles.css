@@ -138,11 +138,11 @@ footer {
 
 /*LUPA*/
 
-#row1 {
+/*#row1 {
   padding: 140px;
-}
+}*/
 
-.mag {
+/*.mag {
   width: 450px;
   margin: 0 auto;
   float: none;
@@ -150,7 +150,7 @@ footer {
 
 .mag img {
   max-width: 100%;
-}
+}*/
 
 /*.mag1 {
   width: 120px;
@@ -158,11 +158,11 @@ footer {
   float: none;
 }*/
 
-.mag1 img {
+/*.mag1 img {
   max-width: 100%;
-}
+}*/
 
-.mag2 {
+/*.mag2 {
   width: 900px;
   margin: 0 auto;
   float: none;
@@ -170,7 +170,7 @@ footer {
 
 .mag2 img {
   max-width: 100%;
-}
+}*/
 
 .magnify {
   position: relative;

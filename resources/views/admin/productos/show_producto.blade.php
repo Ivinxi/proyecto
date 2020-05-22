@@ -93,12 +93,15 @@
 						 		@endforeach
 
 						  </tbody>
-						</table>	
+						</table>
+						{{ $productos->links() }}
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	@yield('modalcreate')
 	@yield('modalStock')
 

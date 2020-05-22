@@ -13,7 +13,7 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::withTrashed()
                     ->orderBy('deleted_at')
-                    ->get();
+                    ->paginate(15);
 
         return view('admin.usuarios.show_usuario', [ 'usuarios' => $usuarios]);
     }

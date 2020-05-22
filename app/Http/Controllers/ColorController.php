@@ -14,7 +14,7 @@ class ColorController extends Controller
     {
         $colors = Color::withTrashed()
                     ->orderBy('deleted_at')
-                    ->get();
+                    ->paginate(15);
                     
         return view('admin.colors.show_color', [ 'colors' => $colors]);
     }

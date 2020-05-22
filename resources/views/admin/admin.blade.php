@@ -10,7 +10,7 @@
 			<a class="yokse" href="tallas"><img class="card-img-top" src="/images/tallas.png" alt="Card image cap"></a>
 		</div>
 		<div class="col-md-2">
-			<a class="yokse" href="colores"><img class="card-img-top" src="/images/colores.png" alt="Card image cap"></a>
+			<a class="yokse" href="colors"><img class="card-img-top" src="/images/colores.png" alt="Card image cap"></a>
 		</div>
 	</div>
 	<div class="row">
