@@ -1,6 +1,30 @@
 body {
-	height: 100%;
-	min-height: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  background-image: url('/images/images.jpg');
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+.principal{
+  background: rgba(255, 255, 255, 0.8);
+  min-height: 100vh;
+}
+
+/*footer {
+  position: absolute;
+  bottom: 0;
+}*/
+
+.pie{
+  height: 180px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.linea-footer{
+  border-top: 4px ridge #26A48C;
+  border-radius: 5px;
 }
 
 #menu-categoria .dropdown-menu {
@@ -15,6 +39,8 @@ body {
 
 .py-4 {
 	padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 100vh;
 }
 
 #banner .carousel-item img{
@@ -22,13 +48,6 @@ body {
 	max-height: 350px;
 	object-position: center;
 	object-fit: cover;
-}
-
-footer {
-	position: relative;
-	height: 150px;
-	width: 100%;
-	box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .producto{
@@ -50,6 +69,11 @@ footer {
   background-color: #3FBF50;
   color:white;
 }
+
+.relleno-top{
+  padding-top:15px;
+}
+
 
 /*CARRUSELES DE LA PÁGINA PRINCIPAL*/
 
@@ -134,6 +158,14 @@ footer {
 
 .navbar-registro{
   z-index: 1030;
+}
+
+#menu-categoria .dropdown-menu{
+  width: 30rem;
+}
+
+.view.overlay{
+  height: 183px;
 }
 
 /*LUPA*/

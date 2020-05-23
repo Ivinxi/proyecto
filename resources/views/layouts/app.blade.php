@@ -88,10 +88,12 @@
         </main>
 
 
-        <footer class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Iván Herrera Rodriguez</p>
+        <footer>
+            <div class="container pie">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="linea-footer">Iván Herrera Rodriguez</p>
+                    </div>
                 </div>
             </div>
         </footer>

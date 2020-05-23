@@ -13,13 +13,30 @@ class ProductoController extends Controller
 {
 
 
-	
+	//VISTA DE PRODUCTO INDIVIDUALMENTE
+
     public function producto(Producto $producto)
     {
         return view('producto', ['producto' => $producto]);
     }
 
-//MOSTRAR TODOS LOS PRODUCTOS
+    //VISTA AL SELECCIONAR UN TARGET
+
+    public function target($target){
+
+        $unisex = 'unisex-ad';
+
+        if($target == 'niño' || $target == 'niña'){
+            $unisex = 'unisex-ni';
+        }
+            $productos = Producto::whereHas('stock', function($query){
+                $query->where('cantidad_stock', '>', 0);
+            })->where('target', $target)->orWhere('target', $unisex)->orderBy('updated_at', 'desc')->paginate(20);
+        
+        return view('target', ['productos' => $productos]);
+    }
+
+    //MOSTRAR TODOS LOS PRODUCTOS
 
     public function show()
     {

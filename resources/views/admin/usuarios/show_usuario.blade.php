@@ -50,7 +50,7 @@
 						 		@endforeach
 						  </tbody>
 						</table>
-						{{ $productos->links() }}	
+						{{ $usuarios->links() }}	
 					</div>
 				</div>
 			</div>

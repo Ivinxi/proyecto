@@ -47,7 +47,7 @@
 						 		@endforeach
 						  </tbody>
 						</table>
-						{{ $productos->links() }}	
+						{{ $colors->links() }}	
 					</div>
 				</div>
 			</div>
