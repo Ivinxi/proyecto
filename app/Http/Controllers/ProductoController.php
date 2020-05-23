@@ -31,7 +31,9 @@ class ProductoController extends Controller
         }
             $productos = Producto::whereHas('stock', function($query){
                 $query->where('cantidad_stock', '>', 0);
-            })->where('target', $target)->orWhere('target', $unisex)->orderBy('updated_at', 'desc')->paginate(20);
+            })->where('target', $target)->orwhereHas('stock', function($query){
+                $query->where('cantidad_stock', '>', 0);
+            })->where('target', $unisex)->orderBy('updated_at', 'desc')->paginate(20);
         
         return view('target', ['productos' => $productos]);
     }

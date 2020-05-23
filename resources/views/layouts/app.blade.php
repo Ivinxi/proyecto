@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&family=Roboto:wght@900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -87,16 +88,17 @@
             @yield('content')
         </main>
 
-
-        <footer>
-            <div class="container pie">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="linea-footer">Iván Herrera Rodriguez</p>
+        @if(!(request()->is('login') || request()->is('register')))
+            <footer>
+                <div class="container pie">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="linea-footer">Iván Herrera Rodriguez</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        @endif
     </div>
 </body>
 </html>

@@ -3,8 +3,8 @@
 
 @section('content')
 
-<div class="container">
-	<div class="row producto">
+<div class="container principal producto py-5">
+	<div class="row">
 		<div class="col-md-3 offset-md-2 mag1">
 			<img data-toggle="magnify" src="/{{ $producto->foto_producto }}" alt="Foto del Producto" class="img-responsive img-rounded center-block foto-prod">
 		</div>

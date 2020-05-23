@@ -3,7 +3,7 @@
 	<div class="container">
 		<ul class="nav nav-pills justify-content-center">
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link" href="/target/hombre" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
+				<a class="nav-link lora" href="/target/hombre" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">Camisetas</a>
 					<a class="dropdown-item" href="#">Polos</a>
@@ -23,7 +23,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link" href="/target/mujer" role="button" aria-haspopup="true" aria-expanded="false">Mujer</a>
+				<a class="nav-link lora" href="/target/mujer" role="button" aria-haspopup="true" aria-expanded="false">Mujer</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">Camisetas</a>
 					<a class="dropdown-item" href="#">Tops y Blusas</a>
@@ -47,7 +47,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link" href="/target/niña" role="button" aria-haspopup="true" aria-expanded="false">Niña</a>
+				<a class="nav-link lora" href="/target/niña" role="button" aria-haspopup="true" aria-expanded="false">Niña</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">Camisetas</a>
 					<a class="dropdown-item" href="#">Tops y Blusas</a>
@@ -71,7 +71,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link" href="/target/niño" role="button" aria-haspopup="true" aria-expanded="false">Niño</a>
+				<a class="nav-link lora" href="/target/niño" role="button" aria-haspopup="true" aria-expanded="false">Niño</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">Camisetas</a>
 					<a class="dropdown-item" href="#">Polos</a>

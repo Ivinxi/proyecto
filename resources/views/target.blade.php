@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container principal relleno-top">
+<div class="container principal py-5">
 	<div class="row">
 		@foreach($productos as $producto)
             <div class="col-12 col-md-4 col-lg-2">

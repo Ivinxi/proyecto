@@ -1,3 +1,11 @@
+/*
+#67bfab celeste flor
+#01a67d turquesa flor
+#cccb6c amarillo flor
+#5f422f marron flor
+#fdf7bd amarillo fondo
+*/
+
 body {
   min-height: 100vh;
   position: relative;
@@ -7,8 +15,21 @@ body {
   background-repeat: repeat;
 }
 
+a{
+  color: #01a67d;
+}
+
+a:hover{
+  color: #5f422f !important;
+}
+
+.fondo-registro{
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 30%;
+}
+
 .principal{
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   min-height: 100vh;
 }
 
@@ -19,12 +40,11 @@ body {
 
 .pie{
   height: 180px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .linea-footer{
-  border-top: 4px ridge #26A48C;
-  border-radius: 5px;
+  border-top: 2px solid #ccbc6c;
 }
 
 #menu-categoria .dropdown-menu {
@@ -37,23 +57,20 @@ body {
 	display:block;
 }
 
+#menu-categoria a.navlink {
+  font-weight: bold;
+}
+
 .py-4 {
 	padding-top: 0 !important;
   padding-bottom: 0 !important;
-  min-height: 100vh;
 }
 
 #banner .carousel-item img{
-	height: 350px;
-	max-height: 350px;
+	height: 500px;
+	max-height: 500px;
 	object-position: center;
 	object-fit: cover;
-}
-
-.producto{
-  padding-top:15px;
-  margin-top:20px;
-  box-shadow: 0 9px 0px 0px transparent, 0 -9px 0px 0px transparent, 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8);
 }
 
 .producto img{
@@ -70,10 +87,31 @@ body {
   color:white;
 }
 
-.relleno-top{
-  padding-top:15px;
+.borde-bot{
+  border-bottom:1px solid #ccbc6c;
 }
 
+.titulo-principal{
+  color:#5f422f;
+  font-family: 'Lora', serif;
+  letter-spacing: 5px;
+}
+
+#menu-categoria .dropdown-menu a{
+  color: #5f422f;
+}
+
+#menu-categoria .dropdown-menu a:hover{
+  color: #cccb6c !important;
+  font-weight: bold;
+  background: rgba(253, 247, 189, 0.1);
+
+}
+
+.lora{
+  font-family: 'Lora', serif;
+  letter-spacing: 0.7px;
+}
 
 /*CARRUSELES DE LA PÁGINA PRINCIPAL*/
 
@@ -117,9 +155,23 @@ body {
 .chili-pepper-text {
   color: #9B1B30;
 }
-.carousel-multi-item .controls-top .btn-floating {
-  background: #F8CDCD;
+
+.carousel-multi-item .controls-top{
+  position:absolute;
+  right: 0;
+  top: 0;
 }
+
+.carousel-multi-item .controls-top .btn-floating:hover {
+  background: #5f422f;
+  color:white !important;
+}
+
+.carousel-multi-item .controls-top .btn-floating {
+  color: #5f422f;
+  background: transparent;
+}
+
 .carousel-multi-item .carousel-indicators li {
   height: .75rem;
   width: .75rem;
@@ -133,6 +185,7 @@ body {
   max-width: 1rem;
   background-color: #5cc6c3;
 }
+
 .carousel-multi-item .carousel-indicators {
   margin-bottom: -1rem;
 }
@@ -144,13 +197,21 @@ body {
 }
 
 .carousel-multi-item .card.mb-2:hover {
-	box-shadow: 0 0.25rem 0.25rem lightblue;
+	box-shadow: 0 0.1rem 0.25rem #01a67d;
+  transform:scale(1.1);
+  transition: all 0.5s ease 0s;
+  background: white;
+}
+
+.carousel-multi-item .card.mb-2 {
+  border:none;
+  transition: all .5s ease 0s;
+  background: transparent;
 }
 
 .carousel-multi-item .carousel-item:hover a {
 	text-decoration: none;
 }
-	
 
 .oferta {
 	text-decoration: line-through;

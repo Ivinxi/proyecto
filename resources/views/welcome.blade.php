@@ -2,11 +2,11 @@
 @extends('layouts.menu_categoria')
 
 @section('content')
-<div class="container principal">
+<div class="container principal pb-4">
 	<div class="row">
 
 		<!-- BANNER -->
-		<div class="col-md-12">
+		<div class="col-md-12 px-0">
 			
 			<div id="banner" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
 			  <div class="carousel-inner">
@@ -36,15 +36,17 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<div id="carousel-novedades" class="carousel slide carousel-multi-item v-2 product-carousel carousel-fade" data-ride="carousel" data-interval="12000">
-				<h3>NOVEDADES</h3>
-	        	<!--Controls-->
-		        <div class="controls-top my-3 text-right d-inline-block">
-		        	<a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-		        	<a class="btn-floating btn-sm" href="#carousel-novedades" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-		        </div>
+			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+				<div class="borde-bot">
+					<h3 class="d-inline-block titulo-principal">NOVEDADES</h3>
+		       		<!--Controls-->
+			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+			        </div>
+		    	</div>
 		        <!--/.Controls-->
-		        <div class="carousel-inner" role="listbox">
+		        <div class="carousel-inner py-3" role="listbox">
 				@foreach($novedades as $novedad)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
@@ -73,15 +75,17 @@
 
 	<div class="row seccion ofertas">
 		<div class="col-md-12">
-			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel" data-ride="carousel">
-				<h3>OFERTAS</h3>
+			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+				<div class="borde-bot">
+				<h3 class="d-inline-block titulo-principal">OFERTAS</h3>
 	       		<!--Controls-->
-		        <div class="controls-top my-3 text-right d-inline-block">
-		        	<a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-		        	<a class="btn-floating btn-sm" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-		        </div>
+			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+			        </div>
+		    	</div>
 		        <!--/.Controls-->
-		        <div class="carousel-inner" role="listbox">
+		        <div class="carousel-inner py-3" role="listbox">
 				@foreach($ofertas as $oferta)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
@@ -110,15 +114,17 @@
 
 	<div class="row seccion ultimas">
 		<div class="col-md-12">
-			<div id="carousel-ultimas" class="carousel slide carousel-multi-item v-2 product-carousel" data-ride="carousel">
-				<h3>ÚLTIMAS UNIDADES</h3>
+			<div id="carousel-ultimas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+				<div class="borde-bot">
+				<h3 class="d-inline-block titulo-principal">ÚLTIMAS UNIDADES</h3>
 	        	<!--Controls-->
-		        <div class="controls-top my-3 text-right d-inline-block">
-		        	<a class="btn-floating btn-sm" href="#carousel-ultimas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-		        	<a class="btn-floating btn-sm" href="#carousel-ultimas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-		        </div>
+			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ultimas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ultimas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+			        </div>
+		    	</div>
 		        <!--/.Controls-->
-		        <div class="carousel-inner" role="listbox">
+		        <div class="carousel-inner py-3" role="listbox">
 				@foreach($ultimas as $ultima)
 		          <div class="carousel-item {{ $loop->first ? 'active mx-auto':'' }}">
 		            <div class="col-12 col-md-4 col-lg-2 mx-auto">
