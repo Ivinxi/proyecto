@@ -6,6 +6,7 @@
 	<div class="row">
 
 		<!-- BANNER -->
+
 		<div class="col-md-12 px-0">
 			
 			<div id="banner" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
@@ -31,6 +32,30 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- PRODUCTOS DESTACADOS -->
+
+	<div class="row">
+		<div class="col-12 col-md-5 col-lg-4 offset-md-1 mt-3">		
+			<div class="p-3 text-center destacados">
+				<h3>{{$p1->categoria}}</h3>
+				<div class="img-dest">
+					<img src="{{$p1->foto_producto}}" alt="Foto categoría">
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-5 col-lg-4 offset-lg-2 mt-3">
+			<div class="p-3 text-center destacados">
+				<h3 class="dest-der">{{$p2->categoria}}</h3>
+				<div class="img-dest">
+					<img src="{{$p2->foto_producto}}" alt="Foto categoría">
+				</div>				
+			</div>
+		</div>
+	</div>
+
+
+
 
 	<!-- CARRUSEL NOVEDADES -->
 

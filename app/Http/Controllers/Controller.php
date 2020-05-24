@@ -13,13 +13,28 @@ class Controller extends BaseController
 
     public function index()
     {
+
+        $p1 = \App\Producto::whereHas('stock', function($query){
+            $query->where('cantidad_stock', '>', 0);
+        })->inRandomOrder()->first();
+
+        $p2 = $p1;
+
+        while ($p1->categoria == $p2->categoria){
+            $p1 = \App\Producto::whereHas('stock', function($query){
+                $query->where('cantidad_stock', '>', 0);
+            })->inRandomOrder()->first();
+        }
+
     	$novedades = \App\Producto::whereHas('stock', function($query){
     		$query->where('cantidad_stock', '>', 0);
     	})->orderBy('created_at', 'desc')->take(9)->get();
 
     	$ofertas = \App\Producto::whereHas('stock', function($query){
     		$query->where('cantidad_stock', '>', 0);
-    	})->where('oferta_porcentaje', '!=', null)->orWhere('oferta_plana', '!=', null)->inRandomOrder()->take(9)->get();
+    	})->where('oferta_porcentaje', '!=', null)->orwhereHas('stock', function($query){
+            $query->where('cantidad_stock', '>', 0);
+        })->where('oferta_plana', '!=', null)->inRandomOrder()->take(9)->get();
 
 		$ultimas = \App\Producto::query()->join('stocks', 'stocks.id_producto', '=', 'productos.id_producto')
 		    ->select('productos.*')
@@ -38,6 +53,6 @@ class Controller extends BaseController
 
     	$ofertas = $ofertas->shuffle();
 
-    	return view('welcome', [ 'novedades' => $novedades , 'ofertas' => $ofertas, 'ultimas' => $ultimas, ]);
+    	return view('welcome', [ 'p1' => $p1, 'p2' => $p2, 'novedades' => $novedades, 'ofertas' => $ofertas, 'ultimas' => $ultimas, ]);
     }
 }

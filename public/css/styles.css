@@ -69,7 +69,7 @@ a:hover{
 #banner .carousel-item img{
 	height: 500px;
 	max-height: 500px;
-	object-position: center;
+	object-position: top;
 	object-fit: cover;
 }
 
@@ -113,7 +113,55 @@ a:hover{
   letter-spacing: 0.7px;
 }
 
+.destacados{
+  position: relative;
+  height: 30rem;
+  background: rgba(204, 203, 108);
+  border:3px solid #fdf7bd;
+  transition: all 1s ease 0s;
+}
+
+.destacados:hover h3{
+  background: rgb(204, 203, 108);
+  transition: all 1s ease 0s;
+}
+
+.destacados h3{
+  position: absolute;
+  left: -50px;
+  width: 130%;
+  font-family: 'audiowide', cursive;
+  text-transform: uppercase;
+  /*background: rgba(204, 203, 108, 0.8);*/
+  text-shadow: -1px 0 #fdf7bd, 0 1px #fdf7bd, 1px 0 #fdf7bd, 0 -1px #fdf7bd;
+  transform: rotate(13deg);
+  bottom: 100px;
+  border-radius: 10px;
+  font-size: 2.3rem;
+  color: #5f422f;
+}
+
+.destacados .dest-der{
+  transform: rotate(-13deg);
+  top: 100px;
+  bottom: auto;
+  right: 0;
+}
+
+.img-dest{
+  height: 100%;
+  width: 100%;
+}
+
+.img-dest img{
+  height: 100%;
+  width: 100%;
+  object-position: top;
+  object-fit: cover;
+}
+
 /*CARRUSELES DE LA PÁGINA PRINCIPAL*/
+
 
 .carousel-multi-item.v-2.product-carousel .carousel-inner .carousel-item.active,
 .carousel-multi-item.v-2.product-carousel .carousel-item-next,
