@@ -12,10 +12,8 @@ use App\Color;
 class ProductoController extends Controller
 {
 
-
-	//VISTA DE PRODUCTO INDIVIDUALMENTE
-
-    public function producto(Producto $producto)
+	//VISTA DE UN SOLO PRODUCTO
+    public function producto($target, $categoria, Producto $producto)
     {
         return view('producto', ['producto' => $producto]);
     }
@@ -29,13 +27,34 @@ class ProductoController extends Controller
         if($target == 'niño' || $target == 'niña'){
             $unisex = 'unisex-ni';
         }
-            $productos = Producto::whereHas('stock', function($query){
-                $query->where('cantidad_stock', '>', 0);
-            })->where('target', $target)->orwhereHas('stock', function($query){
-                $query->where('cantidad_stock', '>', 0);
-            })->where('target', $unisex)->orderBy('updated_at', 'desc')->paginate(20);
+
+        $productos = Producto::whereHas('stock', function($query){
+            $query->where('cantidad_stock', '>', 0);
+        })->where('target', $target)->orwhereHas('stock', function($query){
+            $query->where('cantidad_stock', '>', 0);
+        })->where('target', $unisex)->orderBy('updated_at', 'desc')->paginate(20);
         
-        return view('target', ['productos' => $productos]);
+        return view('secciones', ['productos' => $productos]);
+    }
+
+    //VISTA AL SELECCIONAR UNA CATEGORÍA (DE UN TARGET)
+
+    public function categoria($target, $categoria){
+
+        $unisex = 'unisex-ad';
+
+        if($target == 'niño' || $target == 'niña'){
+            $unisex = 'unisex-ni';
+        }
+
+        $productos = Producto::whereHas('stock', function($query) {
+            $query->where('cantidad_stock', '>', 0);
+        })->where('target', $target)->where('categoria', $categoria)
+        ->orwhereHas('stock', function($query) {
+            $query->where('cantidad_stock', '>', 0);
+        })->where('target', $unisex)->where('categoria', $categoria)->orderBy('updated_at', 'desc')->paginate(20);
+
+        return view('secciones', ['productos' => $productos]);
     }
 
     //MOSTRAR TODOS LOS PRODUCTOS
@@ -69,7 +88,7 @@ class ProductoController extends Controller
 
 		$this->cambiaroferta($producto);
 
-        return redirect(route('admin/productos'))->with('create', true);
+        return redirect()->back()->with('create', true);
     }
 
     //MOSTRAR UN PRODUCTO
@@ -90,7 +109,7 @@ class ProductoController extends Controller
 
         $this->cambiaroferta($producto);
 
-        return redirect(route('admin/productos'))->with('update', true);
+        return redirect()->back()->with('update', true);
     }
 
     //ELIMINAR
@@ -99,7 +118,7 @@ class ProductoController extends Controller
     {
         $producto->delete();
 
-        return redirect(route('admin/productos'))->with('delete', true);      
+        return redirect()->back()->with('delete', true);      
     }
 
     //RESTAURAR USUARIO
@@ -108,7 +127,7 @@ class ProductoController extends Controller
     {
         Producto::withTrashed()->find($id_producto)->restore();
 
-        return redirect(route('admin/productos'))->with('restore', true);
+        return redirect()->back()->with('restore', true);
     }
 
     //VALIDAR DATOS
@@ -129,21 +148,34 @@ class ProductoController extends Controller
         ]);
     }
 
+    //CAMBIA O ACTUALIZA LAS OFERTAS
+
     protected function cambiarOferta(Producto $producto)
     {
-        if (request()->oferta && request()->porcentaje)
+        if (request()->oferta > 0 && request()->porcentaje)
      	{
      		$producto->oferta_porcentaje = request()->oferta;
      		$producto->oferta_plana = null;
+
+            if(request()->oferta > 99){
+                $producto->oferta_porcentaje = null;
+            }
      	}
-     	else
+        elseif (request()->oferta > 0 && !request()->porcentaje)
      	{
      		$producto->oferta_plana = request()->oferta;
      		$producto->oferta_porcentaje = null;
      	}
+        elseif (request()->oferta == 0)
+        {
+            $producto->oferta_porcentaje = null;
+            $producto->oferta_plana = null;
+        }
 
      	$producto->save();
     }
+
+    //GUARDAR FOTO EN LOCAL
 
     protected function uploadFoto(Producto $producto)
     {

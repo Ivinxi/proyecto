@@ -47,7 +47,7 @@ class UsuarioController extends Controller
     		'codigo_postal' => request('codigo_postal'),
         ]);
 
-        return redirect(route('admin/usuarios'))->with('create', true);
+        return redirect()->back()->with('create', true);
     }
 
     //MODIFICAR USUARIO
@@ -67,7 +67,7 @@ class UsuarioController extends Controller
 
         $usuario->save();
 
-        return redirect(route('admin/usuarios'))->with('update', true);
+        return redirect()->back()->with('update', true);
         
     }
 
@@ -79,7 +79,7 @@ class UsuarioController extends Controller
         $usuario->delete();
 
 
-        return redirect(route('admin/usuarios'))->with('delete', true);      
+        return redirect()->back()->with('delete', true);      
     }
 
     //RESTAURAR USUARIO
@@ -88,7 +88,7 @@ class UsuarioController extends Controller
     {
         Usuario::withTrashed()->find($id_usuario)->restore();
 
-        return redirect(route('admin/usuarios'))->with('restore', true);
+        return redirect()->back()->with('restore', true);
     }
 
     //VALIDAR DATOS

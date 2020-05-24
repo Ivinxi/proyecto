@@ -25,7 +25,7 @@ class ColorController extends Controller
     {
     	Color::create($this->validator());
 
-        return redirect(route('admin/colors'))->with('create', true);
+        return redirect()->back()->with('create', true);
     }
 
     //MOSTRAR UN COLOR
@@ -41,7 +41,7 @@ class ColorController extends Controller
     {
         $color->update($this->validator());
 
-        return redirect(route('admin/colors'))->with('update', true);
+        return redirect()->back()->with('update', true);
     }
 
     //ELIMINAR UN COLOR
@@ -50,7 +50,7 @@ class ColorController extends Controller
     {
         $color->delete();
 
-        return redirect(route('admin/colors'))->with('delete', true);      
+        return redirect()->back()->with('delete', true);      
     }
 
     //RESTAURAR COLOR
@@ -59,7 +59,7 @@ class ColorController extends Controller
     {
         Color::withTrashed()->find($id_color)->restore();
 
-        return redirect(route('admin/colors'))->with('restore', true);
+        return redirect()->back()->with('restore', true);
     }
 
     //VALIDAR DATOS

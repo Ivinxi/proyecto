@@ -3,12 +3,12 @@
 
 @section('content')
 
-<div class="container principal py-5">
+<div class="container-fluid principal py-5 secciones">
 	<div class="row">
 		@foreach($productos as $producto)
             <div class="col-12 col-md-4 col-lg-2">
-              <div class="card mb-2">
-              	<a href="{{ route('producto.view', [ $producto])}}">
+              <div class="card mb-2 card-producto text-center">
+              	<a href="{{ route('producto.view', [ 'target' => $producto->target, 'categoria' => $producto->categoria, 'producto' => $producto] )}}">
 	                <div class="view overlay">
 	                  <img class="card-img-top" src="/{{ $producto->foto_producto }}" alt="Card image cap">
 	                </div>

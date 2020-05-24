@@ -32,7 +32,7 @@ class StockController extends Controller
         }
 
 
-        return redirect(route('admin/productos'))->with('create', true);
+        return redirect()->back()->with('create', true);
     }
 
     protected function restarStock()
@@ -61,7 +61,7 @@ class StockController extends Controller
 
         $stock->delete();
 
-        return redirect(route('admin/productos'))->with('delete', true);      
+        return redirect()->back()->with('delete', true);
     }
 
     //VALIDAR DATOS

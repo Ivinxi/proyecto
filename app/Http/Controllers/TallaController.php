@@ -32,7 +32,7 @@ class TallaController extends Controller
     {
         Talla::create($this->validator());
 
-        return redirect(route('admin/tallas'))->with('create', true);
+        return redirect()->back()->with('create', true);
     }
 
     //MODIFICAR TALLA
@@ -41,7 +41,7 @@ class TallaController extends Controller
     {
         $talla->update($this->validator());
 
-        return redirect(route('admin/tallas'))->with('update', true);
+        return redirect()->back()->with('update', true);
     }
 
     //ELIMINAR UNA TALLA
@@ -50,7 +50,7 @@ class TallaController extends Controller
     {
         $talla->delete();
 
-        return redirect(route('admin/tallas'))->with('delete', true);      
+        return redirect()->back()->with('delete', true);      
     }
 
     //RESTAURAR USUARIO
@@ -59,7 +59,7 @@ class TallaController extends Controller
     {
         Talla::withTrashed()->find($id_talla)->restore();
 
-        return redirect(route('admin/tallas'))->with('restore', true);
+        return redirect()->back()->with('restore', true);
     }
     //VALIDAR DTOS
 

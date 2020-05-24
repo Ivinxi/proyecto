@@ -18,11 +18,11 @@ Route::get('/', 'Controller@index')->name('/');
 
 // Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('producto/{producto}', 'ProductoController@producto')->name('producto.view');
+Route::get('target/{target}', 'ProductoController@target')->name('target');
 
-Route::get('target/{target}', 'ProductoController@target')->name('target')->where('target', 'hombre|mujer|niño|niña');
+Route::get('target/{target}/categoria/{categoria}', 'ProductoController@categoria')->name('categoria');
 
-Route::get('categoria/{categoria}', 'ProductoController@categoria')->name('categoria');
+Route::get('target/{target}/categoria/{categoria}/producto/{producto}', 'ProductoController@producto')->name('producto.view');
 
 //RUTAS ADMIN
 

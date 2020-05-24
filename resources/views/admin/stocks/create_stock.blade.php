@@ -14,7 +14,7 @@
 					@csrf
 					<input type="hidden" name="id_producto" id="id_producto">
 					<div class="form-group">
-				    	<label for="id_talla">A</label>
+				    	<label for="id_talla">Talla</label>
 
 				    	<select class="form-control @error('id_talla') is-invalid @enderror" name="id_talla" id="id_talla">
 							@foreach($tallas as $talla)
@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="form-group">
-				    	<label for="id_color">A</label>
+				    	<label for="id_color">Color</label>
 
 				    	<select class="form-control @error('id_color') is-invalid @enderror" name="id_color" id="id_color">
 							@foreach($colors as $color)

@@ -244,21 +244,25 @@ a:hover{
 	object-position: center;
 }
 
-.carousel-multi-item .card.mb-2:hover {
+.card-producto:hover {
 	box-shadow: 0 0.1rem 0.25rem #01a67d;
   transform:scale(1.1);
   transition: all 0.5s ease 0s;
   background: white;
 }
 
-.carousel-multi-item .card.mb-2 {
+.card-producto {
   border:none;
   transition: all .5s ease 0s;
   background: transparent;
 }
 
-.carousel-multi-item .carousel-item:hover a {
+.card-producto:hover a {
 	text-decoration: none;
+}
+
+.secciones .card-producto .card-img-top{
+  height: 250px;
 }
 
 .oferta {
@@ -274,7 +278,7 @@ a:hover{
 }
 
 .view.overlay{
-  height: 183px;
+  /*height: 183px;*/
 }
 
 /*LUPA*/
