@@ -15,9 +15,8 @@ class CreateDetallesTable extends Migration
     {
         Schema::create('detalles', function (Blueprint $table) {
             $table->id('id_detalle');
-            $table->foreignId('id_stock')->references('id')->on('stocks');
+            $table->foreignId('id_producto')->references('id_producto')->on('productos');
             $table->foreignId('id_factura')->references('id_factura')->on('facturas');
-            $table->integer('cantidad_detalle');
             $table->decimal('precio_detalle', 6, 2);
             $table->timestamps();
             $table->softDeletes();

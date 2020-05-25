@@ -20,10 +20,10 @@ class Factura extends Model
         return $this->belongsTo('App\Usuario', 'id_usuario', 'id_usuario');
     }
 
-    public function stock()
+    public function producto()
    	{
-   		return $this->belongsToMany('App\Stock', 'detalles', 'id_factura', 'id_stock')
-        ->withPivot('cantidad_detalle', 'precio_detalle', 'created_at', 'updated_at');
+   		return $this->belongsToMany('App\Producto', 'detalles', 'id_factura', 'id_producto')
+        ->withPivot('precio_detalle', 'created_at', 'updated_at');
    	}
 
 }

@@ -25,6 +25,7 @@ class CreateProductosTable extends Migration
             $table->string('target', 10);
             $table->string('material', 20)->nullable();
             $table->string('foto_producto', 255)->nullable();
+            $table->boolean('habilitado')->default('1');
             $table->string('categoria', 20);
             $table->timestamps();
             $table->softDeletes();

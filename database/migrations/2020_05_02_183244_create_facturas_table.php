@@ -17,9 +17,7 @@ class CreateFacturasTable extends Migration
             $table->id('id_factura');
             $table->foreignId('id_usuario')->references('id_usuario')->on('usuarios');
             $table->decimal('precio_factura', 8, 2);
-            $table->enum('estado', ['pendiente','enviado','entregado'])->default('pendiente');
-            $table->enum('metodo_pago', ['tarjeta', 'paypal', 'contrareembolso']);
-            $table->string('pdf_factura', 255);
+            $table->enum('estado', ['Pendiente','Enviado','Entregado'])->default('pendiente');
             $table->timestamps();
             $table->softDeletes();
         });
