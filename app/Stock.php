@@ -41,5 +41,11 @@ class Stock extends Model
         return $this->belongsTo('App\Talla', 'id_talla', 'id_talla');
     }
 
+ public function factura()
+    {
+      return $this->belongsToMany('App\Factura', 'detalles', 'id', 'id_factura')
+        ->withPivot('cantidad_detalle', 'precio_detalle', 'created_at', 'updated_at');
+    }
+
 
 }
