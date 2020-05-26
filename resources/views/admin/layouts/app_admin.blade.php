@@ -6,8 +6,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Bloom Store') }}</title>
+    <link rel="icon" href="{!! asset('images/icon.png') !!}"/>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-registro">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img style="height: 2.4rem;" src="/images/logo.png"></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
