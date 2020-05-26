@@ -3,7 +3,7 @@
 	<div class="container">
 		<ul class="nav nav-pills justify-content-center">
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link lora" href="/target/hombre" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
+				<a class="nav-link lora" href="{{route('target', 'hombre')}}" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'hombre', 'categoria' => 'camisetas'])}}">Camisetas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'hombre', 'categoria' => 'polos'])}}">Polos</a>
@@ -23,7 +23,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link lora" href="/target/mujer" role="button" aria-haspopup="true" aria-expanded="false">Mujer</a>
+				<a class="nav-link lora" href="{{route('target', 'mujer')}}" role="button" aria-haspopup="true" aria-expanded="false">Mujer</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'camisas'])}}">Camisetas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'camisas'])}}">Camisas</a>
@@ -47,7 +47,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link lora" href="/target/niña" role="button" aria-haspopup="true" aria-expanded="false">Niña</a>
+				<a class="nav-link lora" href="{{route('target', 'niña')}}" role="button" aria-haspopup="true" aria-expanded="false">Niña</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'niña', 'categoria' => 'camisas'])}}">Camisetas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'niña', 'categoria' => 'camisas'])}}">Camisas</a>
@@ -71,7 +71,7 @@
 				</div>
 			</li>
 	 		<li class="nav-item dropdown dropdown-hover">
-				<a class="nav-link lora" href="/target/niño" role="button" aria-haspopup="true" aria-expanded="false">Niño</a>
+				<a class="nav-link lora" href="{{route('target', 'niño')}}" role="button" aria-haspopup="true" aria-expanded="false">Niño</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'niño', 'categoria' => 'camisetas'])}}">Camisetas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'niño', 'categoria' => 'polos'])}}">Polos</a>

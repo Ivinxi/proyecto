@@ -9,16 +9,16 @@
 
 		<div class="col-md-12 px-0">
 			
-			<div id="banner" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
+			<div id="banner" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
 			  <div class="carousel-inner">
 			    <div class="carousel-item active">
-			      <img src="/images/carrusel1.jpg" class="d-block w-100" alt="...">
-			    </div>
-			    <div class="carousel-item">
-			      <img src="/images/carrusel2.jpg" class="d-block w-100" alt="...">
-			    </div>
-			    <div class="carousel-item">
 			      <img src="/images/carousel-1.jpg" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="/images/carousel-2.jpg" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="/images/carousel-3.jpg" class="d-block w-100" alt="...">
 			    </div>
 			  </div>
 			  <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
@@ -35,6 +35,7 @@
 
 	<!-- PRODUCTOS DESTACADOS -->
 
+	@if($p1 != null || $p2 != null)
 	<div class="row">
 		<div class="col-12 col-md-5 col-lg-4 offset-md-1 mt-3">		
 			<div class="p-3 text-center destacados">
@@ -57,12 +58,14 @@
 			</div>
 		</div>
 	</div>
+	@endif
 
 	<!-- CARRUSEL NOVEDADES -->
 
+	@if(count($novedades) > 5)
 	<div class="row">
 		<div class="col-md-12">
-			<div id="carousel-novedades" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+			<div id="carousel-novedades" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel" data-interval="12000">
 				<div class="borde-bot">
 					<h3 class="d-inline-block titulo-principal">NOVEDADES</h3>
 		       		<!--Controls-->
@@ -82,9 +85,9 @@
 			                  <img class="card-img-top" src="/{{ $novedad->foto_producto }}" alt="Card image cap">
 			                </div>
 			                <div class="card-body p-3">
-			                  <h5 class="card-title font-weight-bold fuchsia-rose-text mb-0">{{ $novedad->nombre_producto }}</h5>
-			                  <span class="chili-pepper-text mb-0 {{ $novedad->oferta()? 'oferta':''}}">{{ $novedad->precio() }}€</span>
-			                  @if($novedad->oferta())<span class="chili-pepper-text mb-0">{{ $novedad->calcularOferta() }}€</span>@endif
+			                  <h5 class="card-title lora font-weight-bold fuchsia-rose-text mb-0">{{ $novedad->nombre_producto }}</h5>
+			                  <span class="chili-pepper-text mb-0 {{ $novedad->oferta()? 'oferta':'precio'}}">{{ $novedad->precio() }}€</span>
+			                  @if($novedad->oferta())<span class="chili-pepper-text mb-0 precio">{{ $novedad->calcularOferta() }}€</span>@endif
 			                </div>
 		              		
 		              	</a>
@@ -96,12 +99,14 @@
 	      	</div>
 		</div>
 	</div>
+	@endif
 
 	<!-- CARRUSEL OFERTAS -->
 
+	@if(count($ofertas) > 5)
 	<div class="row seccion ofertas">
 		<div class="col-md-12">
-			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+			<div id="carousel-ofertas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel" data-interval="14000">
 				<div class="borde-bot">
 				<h3 class="d-inline-block titulo-principal">OFERTAS</h3>
 	       		<!--Controls-->
@@ -122,8 +127,8 @@
 			                </div>
 			                <div class="card-body p-3">
 			                  <h5 class="card-title font-weight-bold fuchsia-rose-text mb-0">{{ $oferta->nombre_producto }}</h5>
-			                  <span class="chili-pepper-text mb-0 {{ $oferta->oferta()? 'oferta':''}}">{{ $oferta->precio() }}€</span>
-			                  @if($oferta->oferta())<span class="chili-pepper-text mb-0">{{ $oferta->calcularOferta() }}€</span>@endif
+			                  <span class="chili-pepper-text mb-0 {{ $oferta->oferta()? 'oferta':'precio'}}">{{ $oferta->precio() }}€</span>
+			                  @if($oferta->oferta())<span class="chili-pepper-text mb-0 precio">{{ $oferta->calcularOferta() }}€</span>@endif
 			                </div>
 		              		
 		              	</a>
@@ -135,12 +140,14 @@
 	      	</div>
 		</div>
 	</div>
-	
+	@endif
+
 	<!-- CARRUSEL ÚLTIMAS UNIDADES -->
 
+	@if(count($ultimas) > 5)
 	<div class="row seccion ultimas">
 		<div class="col-md-12">
-			<div id="carousel-ultimas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel">
+			<div id="carousel-ultimas" class="carousel slide carousel-multi-item v-2 product-carousel mt-4 text-center" data-ride="carousel" data-interval="16000">
 				<div class="borde-bot">
 				<h3 class="d-inline-block titulo-principal">ÚLTIMAS UNIDADES</h3>
 	        	<!--Controls-->
@@ -161,8 +168,8 @@
 			                </div>
 			                <div class="card-body p-3">
 			                  <h5 class="card-title font-weight-bold fuchsia-rose-text mb-0">{{ $ultima->nombre_producto }}</h5>
-			                  <span class="chili-pepper-text mb-0 {{ $ultima->oferta()? 'oferta':''}}">{{ $ultima->precio() }}€</span>
-			                  @if($ultima->oferta())<span class="chili-pepper-text mb-0">{{ $ultima->calcularOferta() }}€</span>@endif
+			                  <span class="chili-pepper-text mb-0 {{ $ultima->oferta()? 'oferta':'precio'}}">{{ $ultima->precio() }}€</span>
+			                  @if($ultima->oferta())<span class="chili-pepper-text mb-0 precio">{{ $ultima->calcularOferta() }}€</span>@endif
 			                </div>
 		              		
 		              	</a>
@@ -174,6 +181,7 @@
 	      	</div>
 		</div>
 	</div>
+	@endif
 </div>
 
 

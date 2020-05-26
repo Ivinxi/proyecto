@@ -20,10 +20,12 @@ class Controller extends BaseController
 
         $p2 = $p1;
 
-        while ($p1->categoria == $p2->categoria){
-            $p1 = \App\Producto::whereHas('stock', function($query){
-                $query->where('cantidad_stock', '>', 0);
-            })->inRandomOrder()->first();
+        if($p1 != null || $p2 != null){
+            while ($p1->categoria == $p2->categoria){
+                $p1 = \App\Producto::whereHas('stock', function($query){
+                    $query->where('cantidad_stock', '>', 0);
+                })->inRandomOrder()->first();
+            }
         }
 
     	$novedades = \App\Producto::whereHas('stock', function($query){

@@ -15,7 +15,15 @@ class ProductoController extends Controller
 	//VISTA DE UN SOLO PRODUCTO
     public function producto($target, $categoria, Producto $producto)
     {
-        return view('producto', ['producto' => $producto]);
+
+        $relacionados = Producto::where('id_producto', '!=', $producto->id_producto)
+                    ->where('target', $target)
+                    ->where('marca', $producto->marca)
+                    ->whereHas('stock', function($query){
+                        $query->where('cantidad_stock', '>', 0);
+                    })->inRandomOrder()->take(5)->get();
+
+        return view('producto', ['producto' => $producto, 'relacionados' => $relacionados]);
     }
 
     //VISTA AL SELECCIONAR UN TARGET

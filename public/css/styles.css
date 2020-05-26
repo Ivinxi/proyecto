@@ -4,7 +4,16 @@
 #cccb6c amarillo flor
 #5f422f marron flor
 #fdf7bd amarillo fondo
+c83232 rojo
 */
+
+/*TIPO DE LETRA*/
+
+.lora{
+  font-family: 'Lora', serif;
+  letter-spacing: 0.7px;
+}
+
 
 body {
   min-height: 100vh;
@@ -73,20 +82,6 @@ a:hover{
 	object-fit: cover;
 }
 
-.producto img{
-  max-width: 100%;
-  object-position: center;
-  object-fit: cover;
-}
-
-.precio{
-  display:inline-block;
-  border-radius:8px;
-  padding:4px;
-  background-color: #3FBF50;
-  color:white;
-}
-
 .borde-bot{
   border-bottom:1px solid #ccbc6c;
 }
@@ -105,13 +100,93 @@ a:hover{
   color: #cccb6c !important;
   font-weight: bold;
   background: rgba(253, 247, 189, 0.1);
-
 }
 
-.lora{
-  font-family: 'Lora', serif;
-  letter-spacing: 0.7px;
+.card-producto .card-title{
+  color: #5f422f !important;
+  text-transform: capitalize;
+  border-bottom: 1px dotted #01a67d;
+  padding-bottom: 0.25rem;
 }
+
+.card-producto .precio{
+  background-color: transparent;
+  color: #67bfab !important;
+  font-weight: bold;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.audiowide{
+  font-family: 'audiowide', cursive;
+}
+
+.secciones .card-title{
+  font-size: 1.25rem;
+}
+
+.secciones .precio{
+  font-size: 1rem;
+}
+
+                                  /*VISTA PRODUCTOS INDIVIDUALMENTE*/
+
+.producto img.foto-prod{
+  max-width: 100%;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 1px solid#67bfab;
+}
+
+.precio{
+  display:inline-block;
+  border-radius:2px;
+  padding:4px;
+  background-color: #01a67d;
+  color:white;
+}
+
+.btn-anadir{
+  color: #5f422f;
+  background-color: #fdf7bd;
+  border: 1px solid #5f422f;
+}
+
+.btn:hover{
+  color: #01a67d;
+  font-weight: bold;
+  color: #04a67d;
+  border-color: #04a67d;
+}
+}
+
+.producto .descripcion-prod{
+  font-size: 1.15rem;
+}
+
+.producto .descripcion-prod h4{
+  border-bottom: 1px solid #5f422f;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.descripcion-prod .fas{
+  color: #67bfab;
+}
+
+.marca-sub{
+  border-bottom: 2px solid #5f422f;
+}
+
+
+                                  /*PRODUCTOS DESTACADOS*/
 
 .destacados{
   position: relative;
@@ -249,6 +324,11 @@ a:hover{
   transform:scale(1.1);
   transition: all 0.5s ease 0s;
   background: white;
+  z-index: 1000;
+}
+
+.card-producto:hover .card-title {
+  border:none;
 }
 
 .card-producto {
@@ -267,6 +347,7 @@ a:hover{
 
 .oferta {
 	text-decoration: line-through;
+  color: #c83232;
 }
 
 .navbar-registro{
@@ -279,58 +360,4 @@ a:hover{
 
 .view.overlay{
   /*height: 183px;*/
-}
-
-/*LUPA*/
-
-/*#row1 {
-  padding: 140px;
-}*/
-
-/*.mag {
-  width: 450px;
-  margin: 0 auto;
-  float: none;
-}
-
-.mag img {
-  max-width: 100%;
-}*/
-
-/*.mag1 {
-  width: 120px;
-  margin: 0 auto;
-  float: none;
-}*/
-
-/*.mag1 img {
-  max-width: 100%;
-}*/
-
-/*.mag2 {
-  width: 900px;
-  margin: 0 auto;
-  float: none;
-}
-
-.mag2 img {
-  max-width: 100%;
-}*/
-
-.magnify {
-  position: relative;
-  cursor: none;
-}
-
-.magnify-large {
-  position: absolute;
-  display: none;
-  width: 120px;
-  height: 120px;
-  -webkit-box-shadow: 0 0 0 7px rgba(204, 204, 204, 0.55), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.55), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.55), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  border-radius: 100%;
 }

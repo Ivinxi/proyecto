@@ -14,8 +14,8 @@
 	                </div>
 	                <div class="card-body p-3">
 	                  <h5 class="card-title font-weight-bold fuchsia-rose-text mb-0">{{ $producto->nombre_producto }}</h5>
-	                  <span class="chili-pepper-text mb-0 {{ $producto->oferta()? 'oferta':''}}">{{ $producto->precio() }}€</span>
-	                  @if($producto->oferta())<span class="chili-pepper-text mb-0">{{ $producto->calcularOferta() }}€</span>@endif
+	                  <span class="chili-pepper-text mb-0 {{ $producto->oferta()? 'oferta':'precio'}}">{{ $producto->precio() }}€</span>
+	                  @if($producto->oferta())<span class="chili-pepper-text mb-0 precio">{{ $producto->calcularOferta() }}€</span>@endif
 	                </div>
               		
               	</a>

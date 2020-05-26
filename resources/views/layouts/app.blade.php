@@ -91,7 +91,7 @@
 
         @if(!(request()->is('login') || request()->is('register')))
             <footer>
-                <div class="container pie">
+                <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*')) ? 'container-fluid':'container'}} pie">
                     <div class="row">
                         <div class="col-md-12">
                             <p class="linea-footer">Iván Herrera Rodriguez</p>
