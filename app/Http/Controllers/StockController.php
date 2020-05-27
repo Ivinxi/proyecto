@@ -142,4 +142,9 @@ class StockController extends Controller
         return redirect()->back();
 
     }
+
+    public function procesarCompra(){
+
+        return view('procesarcompra');
+    }
 }

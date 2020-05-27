@@ -48,7 +48,7 @@
 			<div class="row">
 				<div class="col-10 offset-1 py-3 item-carrito text-right">
 					<h5><small>Total: </small>{{ Cart::session(Auth::user()->id_usuario)->getTotal() }}€</h5>			
-						<a href="" class="btn btn-compra">Procesar Compra</a>
+						<a href="{{ route('procesarCompra') }}" class="btn btn-compra">Procesar Compra</a>
 				</div>
 				
 			</div>

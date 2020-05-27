@@ -30,6 +30,8 @@ Route::get('mostrarCarrito', 'StockController@mostrarCarrito')->name('mostrarCar
 
 Route::get('eliminarCarrito/{id}', 'StockController@eliminarItemCarrito')->name('eliminarCarrito');
 
+Route::get('procesarCompra', 'StockController@procesarCompra')->name('procesarCompra');
+
 //RUTAS ADMIN
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){

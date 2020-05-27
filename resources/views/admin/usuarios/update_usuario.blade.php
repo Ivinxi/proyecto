@@ -13,7 +13,7 @@
 
 				<div class="form-group">
 				    <label for="nombre_usuario">Usuario</label>
-				    <input type="text" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="nombre_usuario" name="nombre_usuario" value="{{ $usuario->nombre_usuario }}">
+				    <input type="text" class="form-control @error('nombre_usuario') is-invalid @enderror" id="nombre_usuario" name="nombre_usuario" value="{{ $usuario->nombre_usuario }}">
 				    @if($errors->has('nombre_usuario'))
 		            	@foreach ($errors->get('nombre_usuario') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -23,7 +23,7 @@
 
 				<div class="form-group">
 				    <label for="email">Email</label>
-				    <input type="email" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="email" name="email" value="{{ $usuario->email }}">
+				    <input type="email" class="form-control @error('nombre_usuario') is-invalid @enderror" id="email" name="email" value="{{ $usuario->email }}">
 				    @if($errors->has('email'))
 		            	@foreach ($errors->get('email') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -47,7 +47,7 @@
 
 				<div class="form-group">
 				    <label for="name">Apellidos</label>
-				    <input type="apellidos" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="apellidos" name="apellidos" value="{{ $usuario->apellidos }}">
+				    <input type="apellidos" class="form-control @error('nombre_usuario') is-invalid @enderror" id="apellidos" name="apellidos" value="{{ $usuario->apellidos }}">
 				    @if($errors->has('apellidos'))
 		            	@foreach ($errors->get('apellidos') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -57,7 +57,7 @@
 
 				<div class="form-group">
 				    <label for="name">Teléfono</label>
-				    <input type="telefono" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="telefono" name="telefono" value="{{ $usuario->telefono }}">
+				    <input type="telefono" class="form-control @error('nombre_usuario') is-invalid @enderror" id="telefono" name="telefono" value="{{ $usuario->telefono }}">
 				    @if($errors->has('telefono'))
 		            	@foreach ($errors->get('telefono') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -67,7 +67,7 @@
 
 				<div class="form-group">
 				    <label for="name">Dirección 1</label>
-				    <input type="direccion1" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="direccion1" name="direccion1" value="{{ $usuario->direccion1 }}">
+				    <input type="direccion1" class="form-control @error('nombre_usuario') is-invalid @enderror" id="direccion1" name="direccion1" value="{{ $usuario->direccion1 }}">
 				    @if($errors->has('direccion1'))
 		            	@foreach ($errors->get('direccion1') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -77,7 +77,7 @@
 
 				<div class="form-group">
 				    <label for="name">Dirección 2</label>
-				    <input type="direccion2" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="direccion2" name="direccion2" value="{{ $usuario->direccion2 }}">
+				    <input type="direccion2" class="form-control @error('nombre_usuario') is-invalid @enderror" id="direccion2" name="direccion2" value="{{ $usuario->direccion2 }}">
 				    @if($errors->has('direccion2'))
 		            	@foreach ($errors->get('direccion2') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -87,7 +87,7 @@
 
 				<div class="form-group">
 				    <label for="name">Provincia</label>
-				    <input type="Provincia" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="provincia" name="provincia" value="{{ $usuario->provincia }}">
+				    <input type="Provincia" class="form-control @error('nombre_usuario') is-invalid @enderror" id="provincia" name="provincia" value="{{ $usuario->provincia }}">
 				    @if($errors->has('provincia'))
 		            	@foreach ($errors->get('provincia') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -97,7 +97,7 @@
 
 				<div class="form-group">
 				    <label for="name">Localidad</label>
-				    <input type="localidad" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="localidad" name="localidad" value="{{ $usuario->localidad }}">
+				    <input type="localidad" class="form-control @error('nombre_usuario') is-invalid @enderror" id="localidad" name="localidad" value="{{ $usuario->localidad }}">
 				    @if($errors->has('localidad'))
 		            	@foreach ($errors->get('localidad') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
@@ -107,7 +107,7 @@
 
 				<div class="form-group">
 				    <label for="name">Código Postal</label>
-				    <input type="codigo_postal" class="form-control form-control @error('nombre_usuario') is-invalid @enderror" id="codigo_postal" name="codigo_postal" value="{{ $usuario->codigo_postal }}">
+				    <input type="codigo_postal" class="form-control @error('nombre_usuario') is-invalid @enderror" id="codigo_postal" name="codigo_postal" value="{{ $usuario->codigo_postal }}">
 				    @if($errors->has('codigo_postal'))
 		            	@foreach ($errors->get('codigo_postal') as $message)
 		                	<span class="help-block text-error">{{ $message }}</span>
