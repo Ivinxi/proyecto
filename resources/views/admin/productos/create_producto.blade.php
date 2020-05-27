@@ -40,12 +40,39 @@
 
 						<div class="form-group col-md-6">
 					    	<label for="categoria">Categoría</label>
-					    	<input type="text" id="name" class="form-control @error('categoria') is-invalid @enderror" name="categoria" value="{{ old('categoria') }}" placeholder="Categoría" required>
-	                        @error('categoria')
-	                            <span class="invalid-feedback" role="alert">
-	                                <strong>{{ $message }}</strong>
-	                            </span>
-	                        @enderror 
+                            <select id="categoria" class="form-control" name="categoria">
+                              	<optgroup label="Parte superior">
+                              	<option value="hombre">Camisetas</option>
+                              	<option value="polos" {{ old('categoria') == 'polos' ? "selected":"" }}>Polos</option>
+                              	<option value="camisas" {{ old('categoria') == 'camisas' ? "selected":"" }}>Camisas</option>
+                              	<option value="tops_y_blusas" {{ old('categoria') == 'tops_y_blusas' ? "selected":"" }}>Tops y Blusas</option>
+                              	<option value="jerseis" {{ old('categoria') == 'jerseis' ? "selected":"" }}>Jerséis</option>
+                              	<option value="sudaderas" {{ old('categoria') == 'sudaderas' ? "selected":"" }}>Sudaderas</option>
+                              	<option value="chaquetas" {{ old('categoria') == 'chaquetas' ? "selected":"" }}>Chaquetas</option>
+                              	<option value="abrigos" {{ old('categoria') == 'abrigos' ? "selected":"" }}>Abrigos</option>
+                              	</optgroup>
+                              	<optgroup label="Parte inferior">
+                              	<option value="pantalones" {{ old('categoria') == 'pantalones' ? "selected":"" }}>Pantalones</option>
+                              	<option value="vaqueros" {{ old('categoria') == 'vaqueros' ? "selected":"" }}>Vaqueros</option>
+                              	<option value="faldas" {{ old('categoria') == 'faldas' ? "selected":"" }}>Faldas</option>
+                              	<option value="shorts" {{ old('categoria') == 'shorts' ? "selected":"" }}>Shorts</option>
+                              	<option value="leggins" {{ old('categoria') == 'leggins' ? "selected":"" }}>Leggins</option>
+                              	</optgroup>
+								<optgroup label="Completos">
+								<option value="vestidos" {{ old('categoria') == 'vestidos' ? "selected":"" }}>Vestidos</option>
+								<option value="trajes" {{ old('categoria') == 'trajes' ? "selected":"" }}>Trajes</option>
+								<option value="monos" {{ old('categoria') == 'monos' ? "selected":"" }}>Monos</option>
+								</optgroup>
+								<optgroup label="Otros">
+								<option value="pijamas_y_batas" {{ old('categoria') == 'pijamas_y_batas' ? "selected":"" }}>Pijamas y Batas</option>
+								<option value="ropa_interior" {{ old('categoria') == 'ropa_interior' ? "selected":"" }}>Ropa interior</option>
+								<option value="ropa_de_baño" {{ old('categoria') == 'ropa_de_baño' ? "selected":"" }}>Ropa de baño</option>
+								<option value="zapatos" {{ old('categoria') == 'zapatos' ? "selected":"" }}>Zapatos</option>
+								<option value="accesorios" {{ old('categoria') == 'accesorios' ? "selected":"" }}>Accesorios</option>
+								</optgroup>
+                            </select>
+
+
 						</div>						
 						
 						<div class="form-group col-md-6">
@@ -54,8 +81,8 @@
                               	<option value="hombre">Hombre</option>
                                	<option value="mujer" {{ old('target') == 'mujer' ? "selected":"" }}>Mujer</option>
 								<option value="unisex-ad" {{ old('target') == 'unisex-ad' ? "selected":"" }}>Unisex adultos</option>
-								<option value="niño" {{ old('target') == 'verano' ? "niño":"" }}>Niño</option>
-								<option value="niña" {{ old('target') == 'verano' ? "niña":"" }}>Niña</option>
+								<option value="niño" {{ old('target') == 'niño' ? "selected":"" }}>Niño</option>
+								<option value="niña" {{ old('target') == 'niña' ? "":"selected" }}>Niña</option>
 								<option value="unisex-ni" {{ old('target') == 'unisex-ni' ? "selected":"" }}>Unisex niños</option>
                             </select>
 						</div>
@@ -136,7 +163,7 @@
 
 						<div class="form-group col-md-6 offset-md-3">
 					    	<label for="foto_producto">Foto</label>
-					    	<input type="file" id="foto_producto" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('foto_producto') }}">
+					    	<input type="file" id="foto_producto" class="form-control @error('foto_producto') is-invalid @enderror" name="foto_producto" value="{{ old('foto_producto') }}" required>
 	                        @error('foto_producto')
 	                            <span class="invalid-feedback" role="alert">
 	                                <strong>{{ $message }}</strong>

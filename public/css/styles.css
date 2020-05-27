@@ -7,7 +7,16 @@
 c83232 rojo
 */
 
-/*TIPO DE LETRA*/
+
+img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.logo{
+  width: 4rem;
+}
 
 .lora{
   font-family: 'Lora', serif;
@@ -35,6 +44,36 @@ a:hover{
 .fondo-registro{
   background: rgba(255, 255, 255, 0.9);
   margin-top: 30%;
+}
+
+.item-carrito{
+  border-top: 1px solid #cccb6c;
+}
+
+.item-carrito i{
+  color: #5f422f;
+}
+
+.item-carrito img{
+  height: 125px;
+}
+
+.btn-compra{
+  color: #5f422f;
+  border: 2px solid #5f422f;
+  font-weight: bold;
+}
+
+.btn-compra{
+  color: #5f422f;
+  border: 2px solid #5f422f;
+  font-weight: bold;
+}
+
+.btn-compra:hover{
+  color: white !important;
+  background: #5f422f;
+  border: 2px solid white !important;
 }
 
 .principal{
@@ -360,4 +399,17 @@ a:hover{
 
 .view.overlay{
   /*height: 183px;*/
+}
+
+@media (max-width: 480px){
+  .carousel-multi-item .controls-top{
+    position: relative;
+    display:block;
+    margin-bottom: 0.5rem;
+  }
+
+  .destacados h3{
+    width: 100%;
+  }
+
 }

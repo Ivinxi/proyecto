@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white navbar-registro">
             <div class="container">
                 <a href="{{ url('/') }}">
-                    <img style="height: 2.4rem;" src="/images/logo.png"></a>
+                    <img class="logo" alt="Bloom Store" src="/images/logo.png"></a>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,8 +54,8 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->nombre_usuario }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle capitalize" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Mi cuenta <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -89,7 +89,7 @@
             @yield('content')
         </main>
 
-        @if(!(request()->is('login') || request()->is('register')))
+        @if(!(request()->is('login') || request()->is('register') || request()->is('password/*') ))
             <footer>
                 <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*')) ? 'container-fluid':'container'}} pie">
                     <div class="row">

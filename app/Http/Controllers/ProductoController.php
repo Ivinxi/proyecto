@@ -15,7 +15,26 @@ class ProductoController extends Controller
 	//VISTA DE UN SOLO PRODUCTO
     public function producto($target, $categoria, Producto $producto)
     {
+        
+        $tallas = [];
 
+        $stocks = Stock::join('productos', 'productos.id_producto', 'stocks.id_producto')
+                    ->join('colors', 'colors.id_color', 'stocks.id_color')
+                    ->join('tallas', 'tallas.id_talla', 'stocks.id_talla')
+                    ->select('tallas.id_talla', 'tallas.nombre_talla', 'colors.id_color', 'colors.nombre_color')
+                    ->where('stocks.id_producto', $producto->id_producto)
+                    ->get();
+
+
+        if ($producto->stock() && is_int($stocks[0]->nombre_talla)) 
+        {
+            $tallas = Talla::numeros();
+        }
+        else
+        {
+            $tallas = Talla::letras();
+        }
+        
         $relacionados = Producto::where('id_producto', '!=', $producto->id_producto)
                     ->where('target', $target)
                     ->where('marca', $producto->marca)
@@ -23,7 +42,7 @@ class ProductoController extends Controller
                         $query->where('cantidad_stock', '>', 0);
                     })->inRandomOrder()->take(5)->get();
 
-        return view('producto', ['producto' => $producto, 'relacionados' => $relacionados]);
+        return view('producto', ['producto' => $producto, 'stocks' => $stocks, 'tallas' => $tallas, 'relacionados' => $relacionados]);
     }
 
     //VISTA AL SELECCIONAR UN TARGET
@@ -71,6 +90,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::withTrashed()
                     ->orderBy('deleted_at')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(15);
 
         $tallas = Talla::withTrashed()->get();
@@ -117,7 +137,7 @@ class ProductoController extends Controller
 
         $this->cambiaroferta($producto);
 
-        return redirect()->back()->with('update', true);
+        return redirect('admin/productos')->with('update', true);
     }
 
     //ELIMINAR
@@ -143,7 +163,7 @@ class ProductoController extends Controller
     protected function validator()
     {
         return request()->validate([
-            'nombre_producto' => 'required|max:20|regex:/^[A-zÀ-ú ]*$/',
+            'nombre_producto' => 'required|max:50|regex:/^[A-zÀ-ú ]*$/',
             'descripcion' => 'nullable|max:500',
             'precio' => 'required|numeric|between:0,9999.99',
             'oferta' => 'nullable|numeric|between:0,9999.99',

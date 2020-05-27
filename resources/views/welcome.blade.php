@@ -40,7 +40,7 @@
 		<div class="col-12 col-md-5 col-lg-4 offset-md-1 mt-3">		
 			<div class="p-3 text-center destacados">
 				<a href="{{ route('categoria', [ 'target' => $p1->target, 'categoria' => $p1->categoria] )}}">
-					<h3>{{$p1->categoria}}</h3>
+					<h3>{{$p1->categoria()}}</h3>
 					<div class="img-dest">
 						<img src="{{$p1->foto_producto}}" alt="Foto categoría">
 					</div>
@@ -50,7 +50,7 @@
 		<div class="col-12 col-md-5 col-lg-4 offset-lg-2 mt-3">
 			<div class="p-3 text-center destacados">
 				<a href="{{ route('categoria', [ 'target' => $p2->target, 'categoria' => $p2->categoria] )}}">
-					<h3 class="dest-der">{{$p2->categoria}}</h3>
+					<h3 class="dest-der">{{$p2->categoria()}}</h3>
 					<div class="img-dest">
 						<img src="{{$p2->foto_producto}}" alt="Foto categoría">
 					</div>
@@ -69,7 +69,7 @@
 				<div class="borde-bot">
 					<h3 class="d-inline-block titulo-principal">NOVEDADES</h3>
 		       		<!--Controls-->
-			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        <div class="controls-top mr-3">
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-novedades" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-novedades" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 			        </div>
@@ -110,7 +110,7 @@
 				<div class="borde-bot">
 				<h3 class="d-inline-block titulo-principal">OFERTAS</h3>
 	       		<!--Controls-->
-			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        <div class="controls-top mr-3">
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ofertas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 			        </div>
@@ -151,7 +151,7 @@
 				<div class="borde-bot">
 				<h3 class="d-inline-block titulo-principal">ÚLTIMAS UNIDADES</h3>
 	        	<!--Controls-->
-			        <div class="controls-top text-right d-inline-block float-right mr-3">
+			        <div class="controls-top mr-3">
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ultimas" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
 			        	<a class="btn-floating btn-sm flecha-carrusel" href="#carousel-ultimas" data-slide="next"><i class="fas fa-chevron-right"></i></a>
 			        </div>

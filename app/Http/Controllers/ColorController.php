@@ -67,7 +67,7 @@ class ColorController extends Controller
     protected function validator()
     {
         return request()->validate([
-            'nombre_color' => 'required|max:20|regex:/^[A-zÀ-ú ]*$/|unique:colors'
+            'nombre_color' => 'required|max:50|regex:/^[A-zÀ-ú ]*$/|unique:colors'
         ]);
     }
 

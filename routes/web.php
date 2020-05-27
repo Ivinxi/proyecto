@@ -24,6 +24,12 @@ Route::get('target/{target}/categoria/{categoria}', 'ProductoController@categori
 
 Route::get('target/{target}/categoria/{categoria}/producto/{producto}', 'ProductoController@producto')->name('producto.view');
 
+Route::post('anadirCarrito/{producto}', 'StockController@anadirCarrito')->name('anadirCarrito');
+
+Route::get('mostrarCarrito', 'StockController@mostrarCarrito')->name('mostrarCarrito');
+
+Route::get('eliminarCarrito/{id}', 'StockController@eliminarItemCarrito')->name('eliminarCarrito');
+
 //RUTAS ADMIN
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){

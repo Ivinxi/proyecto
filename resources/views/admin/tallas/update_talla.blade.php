@@ -13,7 +13,7 @@
 
 				<div class="form-group">
 				    <label for="nombre_talla">Talla</label>
-				    <input type="text" class="form-control" id="nombre_talla" name="nombre_talla" value="{{ $talla->nombre_talla }}" required>
+				    <input type="text" class="form-control form-control @error('nombre_talla') is-invalid @enderror" id="nombre_talla" name="nombre_talla" value="{{ $talla->nombre_talla }}" required>
 				     @if($errors->has('nombre_talla'))
 		              @foreach ($errors->get('nombre_talla') as $message)
 		                <span class="help-block text-error">{{ $message }}</span>

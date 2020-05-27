@@ -1,7 +1,7 @@
 @section('menu_categoria')
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top" id="menu-categoria">
 	<div class="container">
-		<ul class="nav nav-pills justify-content-center">
+		<ul class="nav nav-pills">
 	 		<li class="nav-item dropdown dropdown-hover">
 				<a class="nav-link lora" href="{{route('target', 'hombre')}}" role="button" aria-haspopup="true" aria-expanded="false">Hombre</a>
 				<div class="dropdown-menu">
@@ -25,7 +25,7 @@
 	 		<li class="nav-item dropdown dropdown-hover">
 				<a class="nav-link lora" href="{{route('target', 'mujer')}}" role="button" aria-haspopup="true" aria-expanded="false">Mujer</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'camisas'])}}">Camisetas</a>
+					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'camisetas'])}}">Camisetas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'camisas'])}}">Camisas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'tops-y-blusas'])}}">Tops y Blusas</a>
 					<a class="dropdown-item" href="{{route('categoria', [ 'target' => 'mujer', 'categoria' => 'jerséis'])}}">Jerséis</a>
@@ -91,6 +91,9 @@
 				</div>
 			</li>
 		</ul>
+		<div class="d-flex carrito ml-3">	
+			<a href="{{ route('mostrarCarrito') }}" class="btn"><i class="fas fa-shopping-cart fa-lg"></i></a>
+		</div>
 	</div>
 </nav>
 

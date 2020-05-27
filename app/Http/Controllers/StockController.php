@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Stock;
+use App\Producto;
+use App\Color;
+use App\Talla;
+use Cart;
+use Auth;
 
 class StockController extends Controller
 {
@@ -76,4 +81,65 @@ class StockController extends Controller
         ]);
     }
 
+
+    public function anadirCarrito(Producto $producto){
+
+        if(Auth::check()){
+
+            $validate = request()->validate([
+                'id_talla' => 'required|numeric',
+                'id_color' => 'required|numeric',
+            ]);
+
+            if ($validate && Auth::check()){
+
+                $usuario = Auth::user()->id_usuario;
+                $stock = Stock::where('id_producto', $producto->id_producto)->where('id_talla', request()->id_talla)->where('id_color', request()->id_color)->first();
+                $talla = Talla::find(request()->id_talla);
+                $color = Color::find(request()->id_color);
+                
+                Cart::session($usuario)->add(array(
+                                'id' => $stock->id,
+                                'name' => $producto->nombre_producto,
+                                'price' => $producto->devolverPrecio(),
+                                'quantity' => 1,
+                                'attributes' => array(
+                                    'talla' => $talla->nombre_talla,
+                                    'color' => $color->nombre_color,
+                                    'marca' => $producto->marca,
+                                    'foto' => $producto->foto_producto,
+                                    'url' => 'target/' . $producto->target . '/categoria/' . $producto->categoria . '/producto/' . $producto->id_producto,
+                                )
+                ));
+
+            }
+
+            return redirect()->back();
+
+        }
+
+        return redirect('login');
+    }
+
+    public function mostrarCarrito(){
+        
+        if (Auth::user()){
+            $usuario = auth()->user()->id_usuario;
+            $carrito = Cart::session($usuario)->getcontent();
+
+
+            return view('carrito', ['carrito' => $carrito]);
+
+            }
+
+        return redirect('login');
+    }
+
+    public function eliminarItemCarrito($id){
+
+        Cart::session(Auth::user()->id_usuario)->remove($id);
+
+        return redirect()->back();
+
+    }
 }

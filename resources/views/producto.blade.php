@@ -24,26 +24,41 @@
 			    @endif
 			</div>
 			<div class="info-prod text-center">
-				<form action="" method="POST mt-md-4">
-					
-					<select class="custom-select col-5">
-						<option selected>Talla</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+				<form action="{{ route('anadirCarrito', $producto)}}" method="POST" class="mt-md-4" id="form-carrito">
+					@csrf
+						
+						<!-- BUSCA ENTRE TODAS LAS TALLAS DEL PRODUCTO CUÁLES TIENEN STOCK Y PONE DISABLE LAS QUE NO -->
 
-					<select class="custom-select col-5">
-						<option selected>Color</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+						<select class="custom-select col-5 @error('id_talla') is-invalid @enderror" id="id_talla" name="id_talla">
+                              <option selected>Talla</option>
+                            @foreach($tallas as $talla)
+                                {{ $vacio = false }}
+                                @foreach($stocks as $stock)
+                                    @if($talla->nombre_talla == $stock->nombre_talla)
+                                        {{ $vacio = true}}
+                                    @endif
+                                @endforeach
+                                @if(!$vacio)
+                                    <option value="{{$talla->id_talla}}" disabled>{{$talla->nombre_talla}}</option>
+                                @else
+                                    <option value="{{$talla->id_talla}}">{{$talla->nombre_talla}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+
+						<!-- SÓLO SACA LOS COLORES DEL PRODUCTO CON STOCK -->
+
+                        <select class="custom-select col-5 @error('id_color') is-invalid @enderror" id="id_color" name="id_color">
+                            <option selected>Color</option>
+                            @foreach($stocks as $color)
+                                <option value="{{$color->id_color}}">{{$color->nombre_color}}</option>
+                            @endforeach
+                        </select>
 		
-					<button type="submit" class="btn btn-anadir col-1 col-md-10 mt-md-4">
-						<span class="d-none d-md-inline-block">Añadir a la cesta</span>
-						<i class="fas fa-shopping-cart"></i>
-					</button>
+						<button type="submit" class="btn btn-anadir col-1 col-md-10 mt-md-4">
+							<span class="d-none d-md-inline-block">Añadir a la cesta</span>
+							<i class="fas fa-shopping-cart"></i>
+						</button>
 
 				</form>
 			</div>

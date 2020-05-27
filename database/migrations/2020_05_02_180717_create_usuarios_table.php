@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email', 50);
             $table->string('password', 255);
             $table->enum('rol', ['usuario','admin'])->default('usuario');
-            $table->string('nombre_usuario', 20);
+            $table->string('nombre_usuario', 50);
             $table->string('apellidos', 50)->nullable();
             $table->integer('telefono')->nullable();
             $table->string('direccion1', 50)->nullable();

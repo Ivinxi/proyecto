@@ -63,11 +63,26 @@ class Producto extends Model
       return number_format((float)$oferta, 2, '.', '');
     }
 
+    public function devolverPrecio()
+      {
+        $oferta = '';
+
+        if(!empty($this->oferta_porcentaje))
+        {
+          $oferta = $this->precio - ($this->precio * $this->oferta_porcentaje /100);
+        }
+        elseif(!empty($this->oferta_plana))
+          $oferta = $this->precio - $this->oferta_plana;
+
+        $oferta = $oferta ? $oferta:$this->precio;
+
+        return number_format((float)$oferta, 2, '.', '');
+      }
+
     public function precio()
     {
       return number_format((float)$this->precio, 2, '.', '');
     }
-
 
     public function foto()
     {
@@ -76,4 +91,10 @@ class Producto extends Model
       else
         return 'Sí';
     }
+
+    public function categoria()
+    {
+      return str_replace('_', ' ', $this->categoria);
+    }
+
 }

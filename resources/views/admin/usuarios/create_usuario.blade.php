@@ -14,7 +14,7 @@
 					@csrf
 
                         <div class="form-group row">
-                            <label for="nombre_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="nombre_usuario" class="col-md-4 col-form-label text-md-right ">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nombre_usuario" type="text" class="form-control @error('nombre_usuario') is-invalid @enderror" name="nombre_usuario" value="{{ old('nombre_usuario') }}" required>

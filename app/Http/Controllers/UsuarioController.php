@@ -96,7 +96,7 @@ class UsuarioController extends Controller
     protected function validator()
     {
         return request()->validate([
-			'nombre_usuario' => 'max:20|regex:/^[A-zÀ-ú ]*$/',
+			'nombre_usuario' => 'max:50|regex:/^[A-zÀ-ú ]*$/',
     		'email' => 'max:50|unique:usuarios',
     		'password' => 'min:8',
     		'apellidos' => 'nullable|max:50|regex:/^[A-zÀ-ú ]*$/',
@@ -112,7 +112,7 @@ class UsuarioController extends Controller
     protected function validatorSinEmail()
     {
         return request()->validate([
-			'nombre_usuario' => 'max:20|regex:/^[A-zÀ-ú ]*$/',
+			'nombre_usuario' => 'max:50|regex:/^[A-zÀ-ú ]*$/',
     		'apellidos' => 'nullable|max:50|regex:/^[A-zÀ-ú ]*$/',
     		'telefono' => 'nullable|size:9|regex:/^[0-9 ]*$/',
     		'direccion1' => 'nullable|max:50|regex:/^[A-zÀ-ú0-9\,\.\º\-\ª ]*$/',
