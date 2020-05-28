@@ -7,49 +7,6 @@
 c83232 rojo
 */
 
-/*.btn-compra{
-  background: transparent !important;
-  color: #01a67d !important;
-  border: 1px solid #01a67d !important;
-}*/
-
-.agotado{
-  color: #c83232;
-  font-weight: bold;
-}
-
-.instagram{
-  color: #dd4128;
-}
-
-.facebook{
-  color: #3b57a0;
-}
-
-.twitter{
-  color: #00acee;
-}
-
-.noStock{
-  color: #DCDCDC;
-}
-
-img{
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.logo{
-  width: 4rem;
-}
-
-.lora{
-  font-family: 'Lora', serif;
-  letter-spacing: 0.7px;
-}
-
-
 body {
   min-height: 100vh;
   position: relative;
@@ -72,53 +29,9 @@ a:hover{
   margin-top: 30%;
 }
 
-.item-carrito{
-  border-top: 1px solid #cccb6c;
-}
-
-.item-carrito i{
-  color: #5f422f;
-}
-
-.item-carrito img{
-  height: 125px;
-}
-
-.btn-compra{
-  color: #5f422f;
-  border: 2px solid #5f422f;
-  font-weight: bold;
-}
-
-.btn-compra{
-  color: #5f422f;
-  border: 2px solid #5f422f;
-  font-weight: bold;
-}
-
-.btn-compra:hover{
-  color: white !important;
-  background: #5f422f;
-  border: 2px solid white !important;
-}
-
 .principal{
   background: rgba(255, 255, 255, 0.9);
   min-height: 100vh;
-}
-
-/*footer {
-  position: absolute;
-  bottom: 0;
-}*/
-
-.pie{
-  height: 150px;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.linea-footer{
-  border-top: 2px solid #ccbc6c;
 }
 
 #menu-categoria .dropdown-menu {
@@ -145,10 +58,6 @@ a:hover{
 	max-height: 500px;
 	object-position: top;
 	object-fit: cover;
-}
-
-.borde-bot{
-  border-bottom:1px solid #ccbc6c;
 }
 
 .titulo-principal{
@@ -180,6 +89,19 @@ a:hover{
   font-weight: bold;
 }
 
+img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.logo{
+  width: 4rem;
+}
+
+
+                                  /*ESTILOS LETRAS Y DECORACIÓN*/
+
 .uppercase{
   text-transform: uppercase;
 }
@@ -191,6 +113,72 @@ a:hover{
 .audiowide{
   font-family: 'audiowide', cursive;
 }
+
+.lora{
+  font-family: 'Lora', serif;
+  letter-spacing: 0.7px;
+}
+
+.borde-bot{
+  border-bottom:1px solid #ccbc6c;
+}
+
+                                  /*FOOTER*/
+
+.pie{
+  height: 150px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.linea-footer{
+  border-top: 2px solid #ccbc6c;
+}
+
+.instagram{
+  color: #dd4128;
+}
+
+.facebook{
+  color: #3b57a0;
+}
+
+.twitter{
+  color: #00acee;
+}
+
+
+                                  /*CARRITO*/
+
+.item-carrito{
+  border-top: 1px solid #cccb6c;
+}
+
+.item-carrito i{
+  color: #5f422f;
+}
+
+.item-carrito img{
+  height: 125px;
+}
+
+.btn-compra{
+  color: #5f422f;
+  border: 2px solid #5f422f;
+  font-weight: bold;
+}
+
+.btn-compra:hover{
+  color: white !important;
+  background: #5f422f;
+  border: 2px solid white !important;
+}
+
+.agotado{
+  color: #c83232;
+  font-weight: bold;
+}
+
+                                  /*VISTA SECCIONES*/
 
 .secciones .card-title{
   font-size: 1.25rem;
@@ -225,11 +213,25 @@ a:hover{
 }
 
 .btn:hover{
-  color: #01a67d;
   font-weight: bold;
   color: #04a67d;
   border-color: #04a67d;
 }
+
+.list-group-item{
+  background: transparent;
+}
+
+.list-group-item a,button{
+  color: #5f422f;
+  font-weight: bold;
+  background: none;
+  border:none;
+}
+
+button:focus{
+  border:none;
+  outline: none;
 }
 
 .producto .descripcion-prod{
@@ -248,6 +250,10 @@ a:hover{
 
 .marca-sub{
   border-bottom: 2px solid #5f422f;
+}
+
+.noStock{
+  color: #DCDCDC;
 }
 
 

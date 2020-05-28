@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Factura;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class UsuarioController extends Controller
 {
+
+    public function perfil(){
+        return view('perfil');
+    }
+
+    public function facturasUsuario(){
+        $usuario = Usuario::find(Auth::user()->id_usuario);
+
+        $facturas = $usuario->factura->sortDesc();
+
+        return view('facturas_usuario', [ 'facturas' => $facturas]);
+    }
+
     //MOSTRAR TODOS LOS USUARIOS
 
     public function show()
     {
         $usuarios = Usuario::withTrashed()
                     ->orderBy('deleted_at')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(15);
 
         return view('admin.usuarios.show_usuario', [ 'usuarios' => $usuarios]);
@@ -67,6 +83,12 @@ class UsuarioController extends Controller
 
         $usuario->save();
 
+        if(request()->is('admin/usuarios/update/*')){
+            return redirect(route('admin/usuarios'))->with('update', true);
+        }else{
+            return redirect(route('perfil'))->with('update', true);
+        }
+
         return redirect()->back()->with('update', true);
         
     }
@@ -89,6 +111,28 @@ class UsuarioController extends Controller
         Usuario::withTrashed()->find($id_usuario)->restore();
 
         return redirect()->back()->with('restore', true);
+    }
+
+    public function updatePerfil(){
+
+        $usuario = Usuario::find(Auth::user()->id_usuario);
+
+        if($usuario){
+
+            if($usuario->email == request('email')) {
+                $usuario->update($this->validatorSinEmail());
+            }
+            else
+            {
+                $usuario->update($this->validator());
+            } 
+            
+            $usuario->rol = Auth::user()->rol;
+
+            $usuario->save();           
+        }
+
+        return redirect(route('perfil'))->with('update', true);
     }
 
     //VALIDAR DATOS

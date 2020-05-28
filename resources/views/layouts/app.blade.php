@@ -64,6 +64,12 @@
                                        Admin
                                     </a>
                                     @endif
+                                    <a class="dropdown-item" href="{{ route('perfil') }}">
+                                       Perfil
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('facturas') }}">
+                                       Pedidos
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

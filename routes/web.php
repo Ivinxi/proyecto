@@ -16,8 +16,6 @@ Auth::routes();
 
 Route::get('/', 'Controller@index')->name('/');
 
-// Route::get('home', 'HomeController@index')->name('home');
-
 Route::get('target/{target}', 'ProductoController@target')->name('target');
 
 Route::get('target/{target}/categoria/{categoria}', 'ProductoController@categoria')->name('categoria');
@@ -25,6 +23,20 @@ Route::get('target/{target}/categoria/{categoria}', 'ProductoController@categori
 Route::get('target/{target}/categoria/{categoria}/producto/{producto}', 'ProductoController@producto')->name('producto.view');
 
 Route::post('anadirCarrito/{producto}', 'StockController@anadirCarrito')->name('anadirCarrito');
+
+//RUTAS USUARIO
+
+Route::get('perfil', 'UsuarioController@perfil')->name('perfil');
+
+Route::get('perfil/actualizar', 'UsuarioController@perfil')->name('actualizar');
+
+Route::post('perfil/update', 'UsuarioController@updatePerfil')->name('perfil/update');
+
+Route::get('perfil/facturas', 'UsuarioController@facturasUsuario')->name('facturas');
+
+Route::get('downloadPDF/{ruta}', 'FacturaController@downloadPDF')->name('downloadPDF');
+
+//RUTAS COMPRA
 
 Route::get('mostrarCarrito', 'StockController@mostrarCarrito')->name('mostrarCarrito');
 

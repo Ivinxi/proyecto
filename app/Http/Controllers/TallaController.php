@@ -14,6 +14,7 @@ class TallaController extends Controller
     {
         $tallas = Talla::withTrashed()
                     ->orderBy('deleted_at')
+                    ->orderBy('updated_at', 'desc')
                     ->paginate(15);
 
         return view('admin.tallas.show_talla', [ 'tallas' => $tallas]);

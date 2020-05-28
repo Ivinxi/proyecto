@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Factura;
 use App\Stock;
+use App\Usuario;
 use Cart;
 use Auth;
 use PDF;
@@ -75,7 +76,7 @@ class FacturaController extends Controller
     	$fileName = $factura->id_factura . '_' . date('Ymd') . '.pdf';
     	$pdf_url = 'facturas/' . $fileName;
     	$pdf->save($pdf_url);
-    	$factura->pdf_factura = $pdf_url;
+    	$factura->pdf_factura = $fileName;
     	$factura->save();
 
 
@@ -123,5 +124,10 @@ class FacturaController extends Controller
     	];
 
     	return $datos;
+    }
+
+    public function downloadPDF($ruta){
+
+        return response()->file(public_path('facturas') . "/" . $ruta);
     }
 }
