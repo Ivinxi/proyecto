@@ -13,6 +13,27 @@ c83232 rojo
   border: 1px solid #01a67d !important;
 }*/
 
+.agotado{
+  color: #c83232;
+  font-weight: bold;
+}
+
+.instagram{
+  color: #dd4128;
+}
+
+.facebook{
+  color: #3b57a0;
+}
+
+.twitter{
+  color: #00acee;
+}
+
+.noStock{
+  color: #DCDCDC;
+}
+
 img{
   width: 100%;
   object-fit: cover;
@@ -92,7 +113,7 @@ a:hover{
 }*/
 
 .pie{
-  height: 180px;
+  height: 150px;
   background: rgba(255, 255, 255, 0.9);
 }
 

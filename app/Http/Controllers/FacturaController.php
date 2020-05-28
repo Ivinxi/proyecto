@@ -46,10 +46,14 @@ class FacturaController extends Controller
 
     		$stock = Stock::find($carrito->id);
 
-    		if (!$stock || $stock->cantidad_stock < $carrito->quantity){
+    		//STOCK AGOTADO
+    		if (!$stock){
+    			return redirect(route('mostrarCarrito'))->with('agotado'.$carrito->id, true);
+    		}
 
-    			return redirect(route('mostrarCarrito'))->with('agotado', true);
-
+    		//STOCK NO SUFICIENTE
+    		if ($stock->cantidad_stock < $carrito->quantity){
+    			return redirect(route('mostrarCarrito'))->with('exceso'.$carrito->id, true);
     		}
 
     		$stocks->push($stock);
@@ -58,18 +62,17 @@ class FacturaController extends Controller
 
     	//CREACIÓN FACTURA
 
-    	// $factura = Factura::create([
-    	// 	'id_usuario' => Auth::user()->id_usuario,
-    	// 	'precio_factura' => Cart::session(Auth::user()->id_usuario)->getTotal(),
-    	// 	'metodo_pago' => request()->metodo_pago,
-    	// ]);
+    	$factura = Factura::create([
+    		'id_usuario' => Auth::user()->id_usuario,
+    		'precio_factura' => Cart::session(Auth::user()->id_usuario)->getTotal(),
+    		'metodo_pago' => request()->metodo_pago,
+    	]);
 
     	//CREACIÓN DEL PDF DE LA FACTURA
 
     	$datos = $this->datosPDF();
-    	return view('pdf.factura', $datos);
     	$pdf = PDF::loadView('pdf.factura', $datos);
-    	$fileName = Auth::user()->id_usuario . '_' . date('YmdHis') . '.pdf';
+    	$fileName = $factura->id_factura . '_' . date('Ymd') . '.pdf';
     	$pdf_url = 'facturas/' . $fileName;
     	$pdf->save($pdf_url);
     	$factura->pdf_factura = $pdf_url;
@@ -96,6 +99,10 @@ class FacturaController extends Controller
 
     			$stock->delete();
     		}
+
+    		Cart::session(Auth::user()->id_usuario)->clear();
+
+    		return redirect('/')->with('compra_exito', true);
     	}
 
  		return $pdf->download($fileName);

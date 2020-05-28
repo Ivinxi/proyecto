@@ -39,7 +39,7 @@
                                     @endif
                                 @endforeach
                                 @if(!$vacio)
-                                    <option value="{{$talla->id_talla}}" disabled>{{$talla->nombre_talla}}</option>
+                                    <option class="noStock" value="{{$talla->id_talla}}" disabled>{{$talla->nombre_talla}}</option>
                                 @else
                                     <option value="{{$talla->id_talla}}">{{$talla->nombre_talla}}</option>
                                 @endif

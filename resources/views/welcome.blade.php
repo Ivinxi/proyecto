@@ -4,6 +4,15 @@
 @section('content')
 <div class="container principal pb-4">
 	<div class="row">
+		
+		@if(session('compra_exito'))
+			<div class="alert alert-success alert-dismissible fixed-top w-50 mx-auto mt-3" role="alert">
+              <strong>Tu compra se ha realizado con éxito.</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+		@endif
 
 		<!-- BANNER -->
 

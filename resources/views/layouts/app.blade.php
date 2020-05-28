@@ -89,12 +89,19 @@
             @yield('content')
         </main>
 
-        @if(!(request()->is('login') || request()->is('register') || request()->is('password/*') ))
+        @if(!(request()->is('login') || request()->is('register') || request()->is('password/*') || request()->is('procesarCompra')) )
             <footer>
                 <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*')) ? 'container-fluid':'container'}} pie">
                     <div class="row">
                         <div class="col-md-12">
+                            
                             <p class="linea-footer">Iván Herrera Rodriguez</p>
+                            <span>BloomStoreSA@gmail.com</span>
+                            <div class="float-right">
+                                <a href="https://www.twitter.com"><i class="fab fa-twitter-square fa-3x twitter"></i></a>
+                                <a href="https://www.instagram.com"><i class="fab fa-instagram-square fa-3x instagram"></i></a>
+                                <a href="https://www.facebook.com"><i class="fab fa-facebook-square fa-3x facebook"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>

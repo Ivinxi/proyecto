@@ -31,15 +31,21 @@
 					</div>
 					<div class="col-7 py-3 item-carrito">
 						<div class="float-right"><a href="{{ route('eliminarCarrito', $car->id) }}"><i class="fas fa-trash-alt fa-lg"></i></a></div>
-						<a href="{{ $car->attributes->url }}" class="d-inline-block {{session('agotado') ? 'agotado':'' }}">
+						<a href="{{ $car->attributes->url }}" class="d-inline-block {{session('agotado'.$car->id) ? 'agotado':'' }}">
 							<h3 class="lora capitalize">{{ $car->name }}</h3>
 						</a>
 						<h5 class="audiowide uppercase"><small class="capitalize reset-font">Marca: </small>{{ $car->attributes->marca }}</h5>
 						<h5 class="uppercase"><small class="capitalize">Talla: </small>{{ $car->attributes->talla }}</h5>
 						<h5 class="capitalize"><small>Color: </small>{{$car->attributes->color }}</h5>
-						<h5 class="float-right ml-4"><small>Precio: </small>{{$car->price * $car->quantity }}€</h5>
-						<h5 class="float-right"><small>Cantidad: </small>{{$car->quantity }}</h5>
-
+						@if(session('agotado'.$car->id))
+							<h5 class="float-right agotado">Agotado</h5>
+						@elseif(session('exceso'.$car->id))
+							<h5 class="float-right ml-4 agotado">Stock insuficiente <i class="far fa-frown"></i></h5>
+							<h5 class="float-right agotado"><small>Cantidad: </small>{{$car->quantity }}</h5>
+						@else
+							<h5 class="float-right ml-4"><small>Precio: </small>{{$car->price * $car->quantity }}€</h5>
+							<h5 class="float-right"><small>Cantidad: </small>{{$car->quantity }}</h5>
+						@endif
 					</div>
 					
 				</div>
