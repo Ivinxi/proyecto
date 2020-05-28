@@ -32,6 +32,8 @@ Route::get('eliminarCarrito/{id}', 'StockController@eliminarItemCarrito')->name(
 
 Route::get('procesarCompra', 'StockController@procesarCompra')->name('procesarCompra');
 
+Route::post('pago', 'FacturaController@pago')->name('pago');
+
 //RUTAS ADMIN
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){

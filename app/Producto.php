@@ -29,12 +29,6 @@ class Producto extends Model
    		return $this->hasMany('App\Stock', 'id_producto', 'id_producto');
    	}
 
-    public function factura()
-    {
-      return $this->belongsToMany('App\Factura', 'detalles', 'id_producto', 'id_factura')
-        ->withPivot('precio_detalle', 'created_at', 'updated_at');
-    }
-
     public function oferta()
     {
       $oferta = '';

@@ -31,7 +31,7 @@
 					</div>
 					<div class="col-7 py-3 item-carrito">
 						<div class="float-right"><a href="{{ route('eliminarCarrito', $car->id) }}"><i class="fas fa-trash-alt fa-lg"></i></a></div>
-						<a href="{{ $car->attributes->url }}" class="d-inline-block">
+						<a href="{{ $car->attributes->url }}" class="d-inline-block {{session('agotado') ? 'agotado':'' }}">
 							<h3 class="lora capitalize">{{ $car->name }}</h3>
 						</a>
 						<h5 class="audiowide uppercase"><small class="capitalize reset-font">Marca: </small>{{ $car->attributes->marca }}</h5>
