@@ -24,6 +24,8 @@ Route::get('target/{target}/categoria/{categoria}/producto/{producto}', 'Product
 
 Route::post('anadirCarrito/{producto}', 'StockController@anadirCarrito')->name('anadirCarrito');
 
+Route::post('buscar', 'ProductoController@buscar')->name('buscar');
+
 //RUTAS USUARIO
 
 Route::get('perfil', 'UsuarioController@perfil')->name('perfil');

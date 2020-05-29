@@ -91,6 +91,29 @@
 				</div>
 			</li>
 		</ul>
+
+
+		 <div class="col-md-6">
+		 	<form action=" {{ route('buscar') }}" method="POST">
+		 		@csrf
+	            <div id="custom-search-input">
+	                <div class="input-group col-md-12">
+	                	<form>
+		                    <input type="text" class="form-control input-lg" placeholder="Buscar" name="buscar" id="buscar">
+		                    <span class="input-group-btn">
+		                        <button class="btn btn-info btn-lg" type="submit">
+		                            <i class="fas fa-search"></i>
+		                        </button>
+		                    </span>
+	                    </form>
+	                </div>
+	            </div>
+	        </form>
+        </div>
+
+
+
+
 		<div class="d-flex carrito ml-3">	
 			<a href="{{ route('mostrarCarrito') }}" class="btn"><i class="fas fa-shopping-cart fa-lg"></i></a>
 		</div>

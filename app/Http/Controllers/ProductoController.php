@@ -7,6 +7,7 @@ use App\Producto;
 use App\Stock;
 use App\Talla;
 use App\Color;
+Use Str;
 
 
 class ProductoController extends Controller
@@ -222,5 +223,55 @@ class ProductoController extends Controller
 
         }
         $producto->save();
+    }
+
+    public function buscar(){
+
+        if(request()->buscar){
+
+            $busqueda = request()->buscar;
+
+            $busqueda = Str::of($busqueda)->explode(' ');
+
+            $consulta = collect([]);
+
+            foreach ($busqueda as $palabra) {
+                $consulta->push(Producto::join('stocks', 'stocks.id_producto', 'productos.id_producto')
+                                    ->join('colors', 'colors.id_color', 'stocks.id_color')
+                                    ->join('tallas', 'tallas.id_talla', 'stocks.id_talla')
+                                    ->select('productos.*', 'tallas.nombre_talla', 'colors.nombre_color')
+                                    ->where(function($query) use($palabra){
+                                        $columns = ['tallas.nombre_talla', 'colors.nombre_color', 'productos.nombre_producto', 'productos.marca', 'productos.temporada', 'productos.target', 'productos.material', 'productos.categoria'];
+                
+                                                foreach ($columns as $column) {
+                                                $query->orWhere($column, 'LIKE', '%'.$palabra.'%');
+                                            }
+                
+                                    })->get());
+            }
+
+            $productos = collect([]);
+
+            for ($i=0; $i < $consulta->count(); $i++) { 
+                foreach ($consulta[$i] as $producto) {
+                    $productos->push($producto);
+                }               
+            }
+
+            $productos_contados = $productos->countBy('id_producto');
+
+            $productos_nuevo = collect([]);
+
+            foreach ($productos_contados as $id => $contador) {
+                
+                if ($contador == $busqueda->count()) {
+
+                    $producto = $productos->firstWhere('id_producto', $id);
+                    $productos_nuevo->push($producto);
+                }
+            }
+
+            return view('secciones', ['productos' => $productos_nuevo]);
+        }
     }
 }

@@ -97,7 +97,7 @@
 
         @if(!(request()->is('login') || request()->is('register') || request()->is('password/*') || request()->is('procesarCompra')) )
             <footer>
-                <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*')) ? 'container-fluid':'container'}} pie">
+                <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*') || request()->is('buscar')) ? 'container-fluid':'container'}} pie">
                     <div class="row">
                         <div class="col-md-12">
                             
