@@ -7,81 +7,6 @@
 c83232 rojo
 */
 
-.btn-bonito{
-  color: #01a67d;
-  border: 1px solid #01a67d;
-  background: transparent;
-  padding: 0.4rem;
-  border-radius: 6px;
-}
-
-.btn-bonito:hover{
-  color: white;
-  border: 1px solid white;
-  background: #01a67d;
-}
-
-.contadorCarrito{
-  color: #01a67d;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 0 6px;
-  height: 20px;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.carrito{
-  position:relative;
-}
-
-.etiquetaOferta{
-  position: absolute;
-  background-color: #c83232;
-  font-weight: bold;
-  color: white;
-  padding: 0.4rem 1.5rem;
-  border-bottom-right-radius: 5px;
-}
-
-#custom-search-input{
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
-}
-
-#custom-search-input input{
-    border: 0;
-    box-shadow: none;
-}
-
-#custom-search-input button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search{
-    font-size: 23px;
-}
-
-
-
-
-
-
 body {
   min-height: 100vh;
   position: relative;
@@ -174,6 +99,21 @@ img{
   width: 4rem;
 }
 
+.btn-bonito{
+  color: #01a67d;
+  border: 1px solid #01a67d;
+  background: transparent;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+
+.btn-bonito:hover{
+  color: white;
+  border: 1px solid white;
+  background: #01a67d;
+}
+
+
 
                                   /*ESTILOS LETRAS Y DECORACIÓN*/
 
@@ -257,7 +197,32 @@ img{
   font-weight: bold;
 }
 
+.contadorCarrito{
+  color: #01a67d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 6px;
+  height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.carrito{
+  position:relative;
+}
+
+
                                   /*VISTA SECCIONES*/
+
+.etiquetaOferta{
+  position: absolute;
+  background-color: #c83232;
+  font-weight: bold;
+  color: white;
+  padding: 0.4rem 1.5rem;
+  border-bottom-right-radius: 5px;
+}
 
 .secciones .card-title{
   font-size: 1.25rem;
@@ -385,8 +350,44 @@ button:focus{
   object-fit: cover;
 }
 
-/*CARRUSELES DE LA PÁGINA PRINCIPAL*/
 
+
+                                  /*BUSCADOR*/
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+
+                              /*CARRUSELES DE LA PÁGINA PRINCIPAL*/
 
 .carousel-multi-item.v-2.product-carousel .carousel-inner .carousel-item.active,
 .carousel-multi-item.v-2.product-carousel .carousel-item-next,

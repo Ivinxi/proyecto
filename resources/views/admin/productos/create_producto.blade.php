@@ -82,7 +82,7 @@
                                	<option value="mujer" {{ old('target') == 'mujer' ? "selected":"" }}>Mujer</option>
 								<option value="unisex-ad" {{ old('target') == 'unisex-ad' ? "selected":"" }}>Unisex adultos</option>
 								<option value="niño" {{ old('target') == 'niño' ? "selected":"" }}>Niño</option>
-								<option value="niña" {{ old('target') == 'niña' ? "":"selected" }}>Niña</option>
+								<option value="niña" {{ old('target') == 'niña' ? "selected":"" }}>Niña</option>
 								<option value="unisex-ni" {{ old('target') == 'unisex-ni' ? "selected":"" }}>Unisex niños</option>
                             </select>
 						</div>
