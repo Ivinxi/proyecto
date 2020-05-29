@@ -59,9 +59,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   @if( Auth::user()->rol == 'admin')
+                                   @if( Auth::user()->rol == 'admin' || Auth::user()->rol == 'vendedor')
                                     <a class="dropdown-item" href="{{ route('admin/home') }}">
-                                       Admin
+                                       Administrar
                                     </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('perfil') }}">
@@ -99,11 +99,10 @@
             <footer>
                 <div class="{{(request()->is('target/*') && ! request()->is('target/*/producto/*') || request()->is('buscar')) ? 'container-fluid':'container'}} pie">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 linea-footer">
                             
-                            <p class="linea-footer">Iván Herrera Rodriguez</p>
-                            <span>BloomStoreSA@gmail.com</span>
-                            <div class="float-right">
+                            <p class=" p-5 d-inline-block">Iván Herrera Rodriguez <i class="far fa-copyright"></i></p>
+                            <div class="float-right p-5">
                                 <a href="https://www.twitter.com"><i class="fab fa-twitter-square fa-3x twitter"></i></a>
                                 <a href="https://www.instagram.com"><i class="fab fa-instagram-square fa-3x instagram"></i></a>
                                 <a href="https://www.facebook.com"><i class="fab fa-facebook-square fa-3x facebook"></i></a>

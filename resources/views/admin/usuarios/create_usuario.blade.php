@@ -62,10 +62,15 @@
                                 <select id="rol" class="form-control" name="rol">
                                 	<option value="usuario">Usuario</option>
                                 	@if( old('rol') == 'admin')
+                                        <option value="vendedor">Vendedor</option>
                                 		<option value="admin" selected>Admin</option>
-                                	@else
+                                	@elseif( old('rol') == 'vendedor')
+                                        <option value="vendedor" selected>Vendedor</option>
 										<option value="admin">Admin</option>
-                                	@endif
+                                	@else
+                                        <option value="vendedor">Vendedor</option>
+                                        <option value="admin">Admin</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>

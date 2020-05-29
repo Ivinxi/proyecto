@@ -273,5 +273,7 @@ class ProductoController extends Controller
 
             return view('secciones', ['productos' => $productos_nuevo]);
         }
+
+        return redirect('/');
     }
 }

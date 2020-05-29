@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class IsAdmin
+class IsAdmin_Vendedor
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,11 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->rol == 'admin'){
+        if (Auth::user() && (Auth::user()->rol == 'admin' || Auth::user()->rol == 'vendedor')){
 
             return $next($request);
         }
 
-        return abort(403);
+        return redirect('/');
     }
 }

@@ -50,7 +50,7 @@ Route::post('pago', 'FacturaController@pago')->name('pago');
 
 //RUTAS ADMIN
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'admin_vendedor'], function(){
 
 	Route::get('home', function(){
 		return view('admin.admin');
@@ -90,15 +90,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 
 		Route::get('/', 'UsuarioController@show')->name('admin/usuarios');
 
-		Route::post('insert', 'UsuarioController@create')->name('admin/usuarios/insert');
+		Route::post('insert', 'UsuarioController@create')->name('admin/usuarios/insert')->middleware('admin');
 
-		Route::get('edit/{usuario}', 'UsuarioController@edit')->name('admin/usuarios/edit');
+		Route::get('edit/{usuario}', 'UsuarioController@edit')->name('admin/usuarios/edit')->middleware('admin');
 
-		Route::post('update/{usuario}', 'UsuarioController@update')->name('admin/usuarios/update');
+		Route::post('update/{usuario}', 'UsuarioController@update')->name('admin/usuarios/update')->middleware('admin');
 
-		Route::get('delete/{usuario}', 'UsuarioController@delete')->name('admin/usuarios/delete');
+		Route::get('delete/{usuario}', 'UsuarioController@delete')->name('admin/usuarios/delete')->middleware('admin');
 
-		Route::get('restore/{id_usuario}', 'UsuarioController@restore')->name('admin/usuarios/restore');
+		Route::get('restore/{id_usuario}', 'UsuarioController@restore')->name('admin/usuarios/restore')->middleware('admin');
 	});
 		
 	Route::prefix('productos')->group(function(){

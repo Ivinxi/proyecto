@@ -111,10 +111,7 @@
 	        </form>
         </div>
 
-
-
-
-		<div class="d-flex carrito ml-3">	
+		<div class="d-flex carrito ml-3" data-carrito="{{ Cart::session(Auth::user()->id_usuario)->getTotalQuantity() }}">	
 			<a href="{{ route('mostrarCarrito') }}" class="btn"><i class="fas fa-shopping-cart fa-lg"></i></a>
 		</div>
 	</div>

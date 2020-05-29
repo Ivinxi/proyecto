@@ -36,12 +36,17 @@
                 <div class="form-group">
                     <label for="form-group">Rol</label>
                     <select id="rol" class="form-control" name="rol">	
-                    	<option value="usuario">Usuario</option>                    
-	                    @if( $usuario->rol == 'admin')
-	                        <option value="admin" selected>Admin</option>
-	                    @else
+                    	<option value="usuario">Usuario</option>
+                    	@if( old('rol', $usuario->rol) == 'admin')
+                            <option value="vendedor">Vendedor</option>
+                    		<option value="admin" selected>Admin</option>
+                    	@elseif( old('rol', $usuario->rol) == 'vendedor')
+                            <option value="vendedor" selected>Vendedor</option>
 							<option value="admin">Admin</option>
-	                    @endif
+                    	@else
+                            <option value="vendedor">Vendedor</option>
+                            <option value="admin">Admin</option>
+                        @endif
                     </select>
                 </div>
 

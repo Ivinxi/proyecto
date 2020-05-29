@@ -24,6 +24,10 @@ $(document).ready(function(){
 	
 	});
 	
+  var contador = $('.carrito').attr('data-carrito');
+  console.log(contador);
+  $('.carrito a').append('<span class="contadorCarrito">'+contador+'</span>');
+
 });
 
 // TABLA PRODUCTOS COLLAPSE
