@@ -42,7 +42,7 @@ class ColorController extends Controller
     {
         $color->update($this->validator());
 
-        return redirect()->back()->with('update', true);
+        return redirect(route('admin/colors'))->with('update', true);
     }
 
     //ELIMINAR UN COLOR

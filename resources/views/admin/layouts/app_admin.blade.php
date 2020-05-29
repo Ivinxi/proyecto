@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ route('admin/home')}}" class="btn"><i class="fas fa-home fa-lg"></i></a>
+                            <a href="{{ route('admin/home')}}" class="btn"><i class="fas fa-home fa-lg casa"></i></a>
                         </li>
 
                     </ul>

@@ -48,6 +48,7 @@
 						  </tbody>
 						</table>
 						{{ $tallas->links() }}
+						<a href="{{ route('admin/home') }}"><button type="button" class="btn btn-primary btn-sm btn-admin">Volver</button></a>
 					</div>
 
 				</div>

@@ -7,6 +7,19 @@
 c83232 rojo
 */
 
+.btn-bonito{
+  color: #01a67d;
+  border: 1px solid #01a67d;
+  background: transparent;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+
+.btn-bonito:hover{
+  color: white;
+  border: 1px solid white;
+  background: #01a67d;
+}
 
 .contadorCarrito{
   color: #01a67d;
@@ -210,6 +223,10 @@ img{
 
 
                                   /*CARRITO*/
+
+.btn-carrito{
+  color: #5f422f;
+}
 
 .item-carrito{
   border-top: 1px solid #cccb6c;

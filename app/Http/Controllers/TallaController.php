@@ -42,7 +42,7 @@ class TallaController extends Controller
     {
         $talla->update($this->validator());
 
-        return redirect()->back()->with('update', true);
+        return redirect(route('admin/tallas'))->with('update', true);
     }
 
     //ELIMINAR UNA TALLA

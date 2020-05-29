@@ -42,7 +42,7 @@
 
                 <div class="row mb-5">
                 	<div class="col-12 text-center">
-                		<h3 class="lora">Tus datos</h3>
+                		<h3 class="lora">Mis datos</h3>
                 	</div>
                 </div>
 

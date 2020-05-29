@@ -110,10 +110,16 @@
 	            </div>
 	        </form>
         </div>
+		
+		@if(Auth::user())
+			<div class="d-flex carrito ml-3" data-carrito="{{ Cart::session(Auth::user()->id_usuario)->getTotalQuantity() }}">
+				<a href="{{ route('mostrarCarrito') }}" class="btn btn-carrito"><i class="fas fa-shopping-cart fa-lg"></i></a>
+			</div>
+		@else
+			<a href="{{ route('mostrarCarrito') }}" class="btn btn-carrito"><i class="fas fa-shopping-cart fa-lg"></i></a>
+		@endif
+		
 
-		<div class="d-flex carrito ml-3" data-carrito="{{ Cart::session(Auth::user()->id_usuario)->getTotalQuantity() }}">	
-			<a href="{{ route('mostrarCarrito') }}" class="btn"><i class="fas fa-shopping-cart fa-lg"></i></a>
-		</div>
 	</div>
 </nav>
 
