@@ -16,6 +16,9 @@ class FacturaController extends Controller
 {
     public function pago()
     {
+        if(Cart::session(Auth::user()->id_usuario)->isEmpty()){
+            return redirect(route('mostrarCarrito'));
+        }
 
     	$datos = request()->validate([
     		'nombre_completo' => 'required|max:50|regex:/^[A-zÀ-ú ]*$/',
@@ -129,5 +132,12 @@ class FacturaController extends Controller
     public function downloadPDF($ruta){
 
         return response()->file(public_path('facturas') . "/" . $ruta);
+    }
+
+    public function show(){
+        $facturas = Factura::orderBy('updated_at', 'desc')
+                        ->paginate(15);
+
+        return view('admin.facturas.show_factura', ['facturas' => $facturas]);
     }
 }

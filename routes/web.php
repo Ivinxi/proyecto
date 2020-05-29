@@ -119,4 +119,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
 
 		Route::get('deleteStock/{stock}', 'StockController@delete')->name('admin/productos/deleteStock');
 	});
+
+	Route::prefix('facturas')->group(function(){
+
+		Route::get('/', 'FacturaController@show')->name('admin/facturas');
+
+	});
 });
